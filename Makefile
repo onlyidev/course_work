@@ -6,7 +6,7 @@ LATEXMK_BASE_FLAGS:=-lualatex -file-line-error -Werror -emulate-aux-dir -aux-dir
 .PHONY: pdf
 pdf:
 	latexmk $(LATEXMK_BASE_FLAGS) -halt-on-error $(TEX_NAME)
-	open $(PDF_NAME) || setsid xdg-open $(PDF_NAME)
+	# open $(PDF_NAME) || setsid xdg-open $(PDF_NAME)
 
 .PHONY: watch
 watch: pdf
