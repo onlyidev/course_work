@@ -3,7 +3,6 @@
 # yra tekstiniai, tie failai į repozitoriją
 # išsaugomi su LF eilučių pabaigomis.
 * text=auto
-
 # Tikrai tekstiniai failai.
 *.tex text
 *.cls text
@@ -12,3 +11,4 @@
 *.cfg text
 *.md text
 Makefile text
+*.pdf filter=lfs diff=lfs merge=lfs -text
