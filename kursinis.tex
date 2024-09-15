@@ -1,5 +1,5 @@
 \documentclass[
-     english, % Klasei padavus parametrą 'english', darbas bus anglų kalba.
+    english, % Klasei padavus parametrą 'english', darbas bus anglų kalba.
     % signatureplaces % prideda parašų vietas tituliniame puslapyje
 ]{VUMIFPSkursinis}
 \usepackage{float}
@@ -30,12 +30,21 @@
 \reviewer{TBD}
 \date{Vilnius – \the\year}
 
-\bibliography{bibliografija}
+\bibliography{bibliography}
 
 \begin{document}
 \maketitle
 
 \tableofcontents
+
+\sectionnonum{Notes}
+
+\begin{itemize}
+    \item \url{notes/1.md} - Notes about \cite{nguyenGenerativeAdversarialNetworks2023}
+    \item \url{notes/2.md} - Notes about \cite{zhongMalFoxCamouflagedAdversarial2024}
+    \item \url{notes/3.md} - Notes about \cite{zhongReinforcementLearningBased2022}
+    \item \url{notes/4.md} - Notes about \cite{kawaiImprovedMalGANAvoiding2019}
+\end{itemize}
 
 \input{sections/intro.tex}
 \input{sections/results.tex}
@@ -45,7 +54,6 @@
 
 % \sectionnonum{Sąvokų apibrėžimai}
 % \sectionnonum{Santrumpos}
-
 
 % \appendix{Appendix}
 
