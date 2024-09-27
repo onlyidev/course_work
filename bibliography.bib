@@ -1,3 +1,20 @@
+@inproceedings{castroAIMEDEvolvingMalware2019,
+  title = {{{AIMED}}: {{Evolving Malware}} with {{Genetic Programming}} to {{Evade Detection}}},
+  shorttitle = {{{AIMED}}},
+  booktitle = {2019 18th {{IEEE International Conference On Trust}}, {{Security And Privacy In Computing And Communications}}/13th {{IEEE International Conference On Big Data Science And Engineering}} ({{TrustCom}}/{{BigDataSE}})},
+  author = {Castro, Raphael Labaca and Schmitt, Corinna and Dreo, Gabi},
+  date = {2019-08},
+  pages = {240--247},
+  issn = {2324-9013},
+  doi = {10.1109/TrustCom/BigDataSE.2019.00040},
+  url = {https://ieeexplore.ieee.org/abstract/document/8887384?casa_token=xCaErCjOiqsAAAAA:obBRvGXUzbZ_lSaOl1qdLXgo21emMsulFqJIuPRRKM9YW0EB8F8btGmDGzaRNRqaaebrbZk},
+  urldate = {2024-09-23},
+  abstract = {Genetic Programming (GP) has previously proved to achieve valuable results on the fields of image processing and arcade learning. Similarly, it can be used as an adversarial learning approach to evolve malware samples until static learning classifiers are no longer able to detect it. While the implementation is relatively simple compared with other Machine Learning approaches, results proved that GP can be a competitive solution to find adversarial malware examples comparing with similar methods. Thus, AIMED - Automatic Intelligent Malware Modifications to Evade Detection - was designed and imple-mented using genetic algorithms to evade malware classifiers. Our experiments suggest that the time to achieve adversarial malware samples can be reduced up to 50\% compared to classic random approaches. Moreover, we implemented AIMED to generate adversarial examples using individual malware scanners as target and tested the evasive files against further classifiers from both research and industry. The generated examples achieved up to 82\% of cross-evasion rates among the classifiers.},
+  eventtitle = {2019 18th {{IEEE International Conference On Trust}}, {{Security And Privacy In Computing And Communications}}/13th {{IEEE International Conference On Big Data Science And Engineering}} ({{TrustCom}}/{{BigDataSE}})},
+  keywords = {8,Adversarial Learning,AIMED,Genetic algorithms,Genetic Programming,Machine learning,Malware,Neural networks,Perturbation methods,Perturbations,Security,Sociology},
+  file = {C\:\\Users\\liuda\\Zotero\\storage\\JIBUH36J\\Castro et al. - 2019 - AIMED Evolving Malware with Genetic Programming to Evade Detection.pdf;C\:\\Users\\liuda\\Zotero\\storage\\GYM3MMJ4\\8887384.html}
+}
+
 @article{fangEvadingMalwareEngines2019,
   title = {Evading {{Anti-Malware Engines With Deep Reinforcement Learning}}},
   author = {Fang, Zhiyang and Wang, Junfeng and Li, Boya and Wu, Siqi and Zhou, Yingjie and Huang, Haiying},
@@ -100,4 +117,23 @@
   abstract = {Recent advances in machine learning offer attractive tools for sophisticated adversaries. An attacker could transform malware into its adversarial version but retain its malicious functionality by employing a dedicated perturbation method. These adversarial malware examples have demonstrated the effectiveness to bypass antivirus engines. However, recent works only leverage a single perturbation method to generate adversarial examples, which cannot defeat advanced detectors. In this paper, we propose a reinforcement learning-based framework called MalInfo, which could generate powerful adversarial malware examples to evade the third-party detectors via an adaptive selection of a perturbation path for each malware in our collected dataset with 1000 diverse malware. To cope with limited computation, MalInfo applies either dynamic programming or temporal difference learning to choose the optimal perturbation path where each path is formed by the combination of Obfusmal, Stealmal, and Hollowmal. We provide a proof-of-concept implementation and extensive evaluation of our framework. Both the detection rate and evasive rate have substantially been improved compared with the state-of-art research MalFox Zhong et~al. (2021). To be specific, The average detection rates for dynamic programming and temporal difference learning are 23.2\% (21.9\% lower than MalFox) and 27.5\% (7.4\% lower than MalFox), respectively, and the average evasive rates are 65.8\% (17.1\% higher than MalFox) and 59.4\% (5.7\% higher than MalFox), respectively.},
   keywords = {3,Adversarial malware examples,Dynamic programming,Malware,Reinforcement learning,Temporal difference learning},
   file = {C:\Users\liuda\Zotero\storage\S3H8ZSE4\S0167404822002632.html}
+}
+
+@article{zhuNgramMalGANEvading2022,
+  title = {N-Gram {{MalGAN}}: {{Evading}} Machine Learning Detection via Feature n-Gram},
+  shorttitle = {N-Gram {{MalGAN}}},
+  author = {Zhu, Enmin and Zhang, Jianjie and Yan, Jijie and Chen, Kongyang and Gao, Chongzhi},
+  date = {2022-08-01},
+  journaltitle = {Digital Communications and Networks},
+  shortjournal = {Digital Communications and Networks},
+  volume = {8},
+  number = {4},
+  pages = {485--491},
+  issn = {2352-8648},
+  doi = {10.1016/j.dcan.2021.11.007},
+  url = {https://www.sciencedirect.com/science/article/pii/S2352864821000973},
+  urldate = {2024-09-23},
+  abstract = {In recent years, many adversarial malware examples with different feature strategies, especially GAN and its variants, have been introduced to handle the security threats, e.g., evading the detection of machine learning detectors. However, these solutions still suffer from problems of complicated deployment or long running time. In this paper, we propose an n-gram MalGAN method to solve these problems. We borrow the idea of n-gram from the Natural Language Processing (NLP) area to expand feature sources for adversarial malware examples in MalGAN. Generally, the n-gram MalGAN obtains the feature vector directly from the hexadecimal bytecodes of the executable file. It can be implemented easily and conveniently with a simple program language (e.g., C++), with no need for any prior knowledge of the executable file or any professional feature extraction tools. These features are functionally independent and thus can be added to the non-functional area of the malicious program to maintain its original executability. In this way, the n-gram could make the adversarial attack easier and more convenient. Experimental results show that the evasion rate of the n-gram MalGAN is at least 88.58\% to attack different machine learning algorithms under an appropriate group rate, growing to even 100\% for the Random Forest algorithm.},
+  keywords = {7,Adversarial examples,Machine learning,MalGAN,N-gram},
+  file = {C:\Users\liuda\Zotero\storage\IH726JGY\S2352864821000973.html}
 }
