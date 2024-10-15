@@ -66,6 +66,23 @@
   file = {C:\Users\liuda\Zotero\storage\LLWZBM8T\Demetrio et al. - 2021 - Adversarial EXEmples A Survey and Experimental Evaluation of Practical Attacks on Machine Learning.pdf}
 }
 
+@article{demetrioFunctionalityPreservingBlackBoxOptimization2021,
+  title = {Functionality-{{Preserving Black-Box Optimization}} of {{Adversarial Windows Malware}}},
+  author = {Demetrio, Luca and Biggio, Battista and Lagorio, Giovanni and Roli, Fabio and Armando, Alessandro},
+  date = {2021},
+  journaltitle = {IEEE Transactions on Information Forensics and Security},
+  volume = {16},
+  pages = {3469--3478},
+  issn = {1556-6021},
+  doi = {10.1109/TIFS.2021.3082330},
+  url = {https://ieeexplore.ieee.org/abstract/document/9437194?casa_token=GKC1B14XIRIAAAAA:e98SzuUKfv04EGAE35MgdDBDN3bDl-e0m71LiS9Fg5ohK7kzwNK-Bbm7WsPMDSDxeNvttDY},
+  urldate = {2024-10-14},
+  abstract = {Windows malware detectors based on machine learning are vulnerable to adversarial examples, even if the attacker is only given black-box query access to the model. The main drawback of these attacks is that: ( i) they are query-inefficient, as they rely on iteratively applying random transformations to the input malware; and ( ii) they may also require executing the adversarial malware in a sandbox at each iteration of the optimization process, to ensure that its intrusive functionality is preserved. In this paper, we overcome these issues by presenting a novel family of black-box attacks that are both query-efficient and functionality-preserving, as they rely on the injection of benign content (which will never be executed) either at the end of the malicious file, or within some newly-created sections. Our attacks are formalized as a constrained minimization problem which also enables optimizing the trade-off between the probability of evading detection and the size of the injected payload. We empirically investigate this trade-off on two popular static Windows malware detectors, and show that our black-box attacks can bypass them with only few queries and small payloads, even when they only return the predicted labels. We also evaluate whether our attacks transfer to other commercial antivirus solutions, and surprisingly find that they can evade, on average, more than 12 commercial antivirus engines. We conclude by discussing the limitations of our approach, and its possible future extensions to target malware classifiers based on dynamic analysis.},
+  eventtitle = {{{IEEE Transactions}} on {{Information Forensics}} and {{Security}}},
+  keywords = {13,Adversarial examples,black-box optimization,Detectors,evasion attacks,Feature extraction,machine learning,Malware,malware detection,Minimization,Operating systems,Optimization,Payloads},
+  file = {C\:\\Users\\liuda\\Zotero\\storage\\5ID4JCN8\\Demetrio et al. - 2021 - Functionality-Preserving Black-Box Optimization of Adversarial Windows Malware.pdf;C\:\\Users\\liuda\\Zotero\\storage\\PJZQ4WRP\\9437194.html}
+}
+
 @article{fangEvadingMalwareEngines2019,
   title = {Evading {{Anti-Malware Engines With Deep Reinforcement Learning}}},
   author = {Fang, Zhiyang and Wang, Junfeng and Li, Boya and Wu, Siqi and Zhou, Yingjie and Huang, Haiying},
@@ -132,6 +149,23 @@
   langid = {english},
   keywords = {1,Artificial Intelligence},
   file = {C:\Users\liuda\Zotero\storage\ADKB6C5V\Nguyen et al. - 2023 - Generative adversarial networks and image-based malware classification.pdf}
+}
+
+@inproceedings{rosenbergGenericBlackBoxEndEnd2018,
+  title = {Generic {{Black-Box End-to-End Attack Against State}} of the {{Art API Call Based Malware Classifiers}}},
+  booktitle = {Research in {{Attacks}}, {{Intrusions}}, and {{Defenses}}},
+  author = {Rosenberg, Ishai and Shabtai, Asaf and Rokach, Lior and Elovici, Yuval},
+  editor = {Bailey, Michael and Holz, Thorsten and Stamatogiannakis, Manolis and Ioannidis, Sotiris},
+  date = {2018},
+  pages = {490--510},
+  publisher = {Springer International Publishing},
+  location = {Cham},
+  doi = {10.1007/978-3-030-00470-5_23},
+  abstract = {In this paper, we present a black-box attack against API call based machine learning malware classifiers, focusing on generating adversarial sequences combining API calls and static features (e.g., printable strings) that will be misclassified by the classifier without affecting the malware functionality. We show that this attack is effective against many classifiers due to the transferability principle between RNN variants, feed forward DNNs, and traditional machine learning classifiers such as SVM. We also implement GADGET, a software framework to convert any malware binary to a binary undetected by malware classifiers, using the proposed attack, without access to the malware source code.},
+  isbn = {978-3-030-00470-5},
+  langid = {english},
+  keywords = {14},
+  file = {C:\Users\liuda\Zotero\storage\P3HNKHZV\Rosenberg et al. - 2018 - Generic Black-Box End-to-End Attack Against State of the Art API Call Based Malware Classifiers.pdf}
 }
 
 @article{yusteOptimizationCodeCaves2022,
