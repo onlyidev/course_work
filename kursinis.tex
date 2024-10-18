@@ -17,6 +17,9 @@
 \usepackage{listings}
 \usepackage{subcaption}
 \usepackage{biblatex}
+\usepackage{acro}
+
+\include{setups/abbreviations}
 
 \university{Vilniaus universitetas}
 \faculty{Matematikos ir informatikos fakultetas}
@@ -59,12 +62,12 @@
 
 \input{sections/intro.tex}
 \input{sections/results.tex}
-\input{sections/conclusions.tex}
 
 \printbibliography[heading=bibintoc]
 
 % \sectionnonum{Sąvokų apibrėžimai}
-% \sectionnonum{Santrumpos}
+\sectionnonum{Santrumpos}
+\printacronyms[heading=none]
 
 % \appendix{Appendix}
 
