@@ -25,6 +25,10 @@ wordcount:
 check:
 	chktex $(TEX_NAME)
 
+.PHONY: check-git
+check-git:
+	chktex $(TEX_NAME) -n2 -n8 -n12
+
 .PHONY: clean
 clean:
 	rm -rf out/
