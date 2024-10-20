@@ -1,9 +1,16 @@
 \sectionnonum{Įvadas}
 
-Pastaraisiais metais \acfp{di} naudojimas kenkėjiškų programų ar kenkėjiško kodo aptikimo srityje tapo itin populiarus \citeplace.
+Pastaraisiais metais kenkėjiškas kodas ir programos kuriamos itin sparčiai \numbers. Kenkėjiško kodo aptikimo programos, kurios tradiciškai remiasi programų \gls{signature}, nespėja atnaujinti pėdsakų duomenų bazių pakankamai greitai. Dėl to \acfp{di}, tiksliau Mašininio Mokymosi (\acs{ml}), naudojimas kenkėjiškų programų ar kenkėjiško kodo aptikimo srityje tapo itin populiarus \citeplace. Tačiau \ac{ml} modeliai, nors ir geba aptikti kenkėjiškas programas iš naujų, dar nematytų, duomenų, yra pažeidžiami \gls{adversarial} \citeplace. Šių atakų principas yra \ac{ml} modelio sprendimų priėmimo ribos \gls{decisionBoundary} radimas -- žinant šią ribą pakanka pakeisti kenkėjiškos programos veikimą taip, kad \ac{ml} modelis priimtų sprendimą klasifikuoti ją kaip nekenksmingą \citeplace. Žinoma, rasti šią ribą nėra trivialus uždavinys. Mokslinėje literatūroje išskiriami 3 ribos paieškos atvejai:
+\begin{enumerate}
+    \item \textbf{Baltos dėžės} atvejis: kenkėjiško kodo kūrėjas turi visą informaciją apie \ac{ml} modelį, t.~y. modelio architektūrą, svorius, hiperparametrus.
+    \item \textbf{Juodos dėžės su pasitikėjimo įverčiu} atvejis: kenkėjiško kodo kūrėjas gali tik testuoti modelį -- t.~y. pateikti programą ir gauti atsakymą. Atsakymo forma -- klasifikacija ir tikimybė, kad klasifikacija yra teisinga (pasitikėjimo įvertis).
+    \item \textbf{Juodos dėžės} atvejis: kenkėjiško kodo kūrėjas gali tik testuoti modelį. Atsakymo forma yra tik klasifikacija.
+\end{enumerate}
+Akivaizdu, jog \enquote{juodos dėžės} atvejis yra sudėtingiausias, bet ir labiausiai atitinka realias sąlygas \citeplace. Todėl šiame darbe nagrinėjami modeliai, gebantys generuoti varžymosi principais pagrįstų atakų obfuskuotus kenkėjiško kodo pavyzdžius (\acs{ae}) \enquote{juodos dėžės} atvejams.
 
 %  TODO: black box / white box attacks and literature
 %  TODO: actualize problem
+\vspace{10pt}
 \textbf{Tikslas} -- nustatyti labiausiai tinkantį modelį varžymosi principais pagrįstoms atakoms \enquote{juodos dėžės} atvejais.
 
 \vspace{10pt}
