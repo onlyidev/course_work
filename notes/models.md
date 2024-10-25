@@ -27,6 +27,11 @@
 - GAMMA (❌ MalConv & GBDT)
   - ![alt text](image-7.png)
 
+## Other frameworks
+
+- GADGET (❌ Academia models)
+  - ![alt text](image-8.png)
+
 ## Detector models
 
 - MalConv
