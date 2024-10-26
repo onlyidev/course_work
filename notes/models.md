@@ -10,6 +10,8 @@
   - ![alt text](image-2.png)
 - InfoGAN 
   - This is not an adversarial framework - it's a way to force GANs to include mutual information into sample generation
+- IDSGAN (❌ Academia models)
+  - DYNAMIC OBFUSCATION (network traffic)
 
 ## RL model frameworks
 
