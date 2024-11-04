@@ -35,42 +35,28 @@
 \date{Vilnius – \the\year}
 
 \bibliography{bibliography}
+\input{setups/gloassary.tex}
+\makenoidxglossaries{}
 
 \begin{document}
 
 \include{commands}
-\input{setups/gloassary.tex}
-
 
 \maketitle
 
 \tableofcontents
 
-% \sectionnonum{Notes}
-
-% \begin{itemize}
-%     \item \url{notes/1.md} - Notes about \cite{nguyenGenerativeAdversarialNetworks2023}
-%     \item \url{notes/2.md} - Notes about \cite{zhongMalFoxCamouflagedAdversarial2024}
-%     \item \url{notes/3.md} - Notes about \cite{zhongReinforcementLearningBased2022}
-%     \item \url{notes/4.md} - Notes about \cite{kawaiImprovedMalGANAvoiding2019}
-%     \item \url{notes/5.md} - Notes about \cite{huGeneratingAdversarialMalware2017}
-%     \item \url{notes/6.md} - Notes about \cite{fangEvadingMalwareEngines2019}
-%     \item \url{notes/7.md} - Notes about \cite{zhuNgramMalGANEvading2022}
-%     \item \url{notes/8.md} - Notes about \cite{castroAIMEDEvolvingMalware2019}
-%     \item \url{notes/9.md} - Notes about \cite{andersonLearningEvadeStatic2018}
-%     \item \url{notes/10.md} - Notes about \cite{demetrioAdversarialEXEmplesSurvey2021}
-%     \item \url{notes/11.md} - Notes about \cite{yusteOptimizationCodeCaves2022}
-%     \item \url{notes/12.md} - Notes about \cite{chenInfoGANInterpretableRepresentation2016a}
-%     \item \url{notes/13.md} - Notes about \cite{demetrioFunctionalityPreservingBlackBoxOptimization2021}
-%     \item \url{notes/14.md} - Notes about \cite{rosenbergGenericBlackBoxEndEnd2018}
-% \end{itemize}
-
 \input{sections/intro.tex}
+\input{sections/literature.tex}
+\input{sections/criteria.tex}
+\input{sections/experiment.tex}
 \input{sections/results.tex}
 
 \printbibliography[heading=bibintoc]
 
-% \sectionnonum{Sąvokų apibrėžimai}
+\sectionnonum{Sąvokų apibrėžimai}
+\renewcommand{\glossarysection}[2][]{}
+\printnoidxglossary{}
 
 \sectionnonum{Santrumpos}
 \printacronyms[heading=none]

@@ -1,0 +1,13 @@
+\subsection{Genetinių algoritmų tipo modelių karkasai}\label{sec:literature:genetic}
+
+Genetinai algoritmai (\acs{genetic}) yra viena seniausių mašininio mokymosi apraiškų; jų veikimas paremtas evoliucija \citeplace. Kenkėjiškų programų obfuskacijai \acs{ae} generavimas taikant \acs{genetic} yra tokia seka:
+\begin{enumerate}
+    \item sukuriama pradinė populiacija (perturbacijos metodai pradinei populiacijai priklauso nuo karkaso)
+    \item atliekamas vertinimas naudojant detektorių\label{enum:genetic:eval}
+    \item Jei vertinimo metu nustatoma, jog \acs{ae} yra pakankamai geros kokybės (pvz. detektorius klasifikuoja kaip nekenksmingą), seka baigiama
+    \item atliekama selekcija -- dažniausiai pasirenkami geriausiai įvertinti populiacijos \acs{ae}, tačiau galimos ir kitos selekcijos strategijos
+    \item atliekamas selekcijos atrinktų \acs{ae} kryžminimas (po 2) taip sukuriant naują \acs{ae}, turintį po dalį genų iš abiejų kryžmintų \acs{ae}
+    \item tam tikrai daliai \ac{ae} atliekama dalies genų mutacija
+    \item gaunama nauja populiacijos karta ir seka kartojama nuo \ref{enum:genetic:eval}-o žingsnio
+\end{enumerate}
+\cite{yusteOptimizationCodeCaves2022}

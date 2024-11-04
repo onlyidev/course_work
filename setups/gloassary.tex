@@ -1,20 +1,49 @@
+% \glsaddkey
+%  {plural-what}% key
+%  {}% default value
+%  {\glsentryplwhat}% no link cs
+%  {\Glsentryplwhat}% no link ucfirst cs
+%  {\glsplwhat}% link cs
+%  {\Glsplwhat}% link ucfirst cs
+%  {\GLSplwhat}% link all caps cs
+
 \newglossaryentry{signature}{
-    name = signature,
-    description = {kenkėjiško kodo pėdsakas}
+    name = Signature,
+    description = {Kodo/programos pėdsakas},
     text=pėdsakas,
     first = {pėdsakais (\textit{angl. signature})},
 }
 
 \newglossaryentry{adversarial}{
-    name = adversarial,
-    description = {varžymosi principais pagrįstos atakos}
+    name = Adversarial attacks,
+    description = {Varžymosi principais pagrįstos atakos},
     text=varžymosi principais pagrįstos atakos,
     first = {varžymosi principais pagrįstoms atakoms (\textit{angl. adversarial attacks})},
 }
 
 \newglossaryentry{decisionBoundary}{
-    name = decision boundary,
-    description = {sprendimų priėmimo riba}
+    name = Decision Boundary,
+    description = {Sprendimų priėmimo riba},
     text=sprendimų priėmimo riba,
     first = {(\textit{angl. decision boundary})},
+}
+
+\newglossaryentry{zeroSumGame}{
+    name={Zero-sum Game},
+    description={Dviejų žaidėjų žaidimas, kuriame galimas vienas laimėtojas. Laimėtojo laimėta suma yra lygi pralaimėtojo pralaimėtai sumai},
+    text={nulinės sumos žaidimas},
+    first={nulinės sumos žaidimą (\textit{angl. zero-sum game})}
+}
+
+\newglossaryentry{surrogateModel}{
+    name={Surogatinis Modelis},
+    description={\ac{ml} modelis, aproksimuojantis kitą \ac{ml} modelį, kurio parametrai (svoriai) nėra žinomi},
+    text={surogatinis modelis},
+    first={surogatinio modelio}
+}
+
+\newglossaryentry{policy}{
+    name=Strategija,
+    description={\textit{angl. Policy}. \acs{rl} modelio atliekama veiksmų seka},
+    text={\textit{angl. policy}}
 }
