@@ -6,7 +6,7 @@ originalų funkcionalumą. Perturbacijos gali būti sudėtingos ir apimti visą
 programą (pvz. visos programos užšifravimas ir pridėjimas prie kitos
 programos), semantinės (pvz. tam tikrų mašininio kodo instrukcijų keitimas į
 ekvivalentų rezultatą pasiekiančias) arba baitų lygio (pvz. nulinių baitų
-pridėjimas programos gale) \citeplace. Perturbacijų parinkimas įeina į karkaso
+pridėjimas programos gale) \citeplace. Perturbacijų parinkimas įeina į \glswhom{framework}
 apibrėžimą. Šioje sekcijoje aptariamos mokslinėje literatūroje minimos
 perturbacijos.
 \subsubsection{Baitų lygio perturbacijos}
@@ -24,7 +24,7 @@ perturbacijos.
     \item \textbf{\enquote{Extend}} \cite{demetrioAdversarialEXEmplesSurvey2021}. Pakeičiama \acs{pe} formato faile \enquote{DOS} dalyje esanti \enquote{PE Offset} reikšmė į didesnę\footnote{\label{footnote:structure}šios reikšmės padidinimas reiškia visos failo struktūros keitimą (\enquote{DOS} dalis yra failo pradžioje). Būtina pakeisti visų sekcijų vietas nuo pradžios (\textit{angl. offset}) jų metaduomenyse.}. Taip padidinama (išplečiama) visa \enquote{DOS} dalis. Tolesnis perturbacijos principas yra toks pat, kaip ir \enquote{Full DOS}.
     \item \textbf{\enquote{Shift}} \cite{demetrioAdversarialEXEmplesSurvey2021}. \acs{pe} formato failuose kiekvienas sekcijos blokas prasideda su sekcijos vieta nuo pradžios (\textit{angl. offset}). Tarkime ši reikšmė yra $S$. Sekcijos kodas pradedamas vykdyti tik nuo adreso $P+S$, kur $P$ -- programos pradžios adresas. Vadinasi, padidinus\footnoteref{footnote:structure} $S$ per $n$, atsiranda $n$ baitų laisvos vietos iki sekcijos pradžios, kurią galima keisti be jokios įtakos programos veikimui.
 \end{itemize}
-\subsubsection{Semantinės perturbacijos}
+\subsubsection{Semantinės perturbacijos}\label{sec:literature:perturbations:semantic}
 \begin{itemize}
     \item \textbf{Nereikalingų \hyperref[feature:dll]{DLL/API vardų} požymių pridėjimas} \cite{huGeneratingAdversarialMalware2017}. \acs{pe} formato faile \enquote{ImportTable} lentelėje pridedami originalios programos nenaudojami \acs{dll}/\acs{api} vardai.
     \item \textbf{\enquote{Binary Rewriting}} \cite{demetrioAdversarialEXEmplesSurvey2021}. Semantinis instrukcijų perrašymas. Pavyzdžiui, $A+B$ instrukcijos pakeitimas į $A-(-B)$.

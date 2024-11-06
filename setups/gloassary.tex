@@ -7,6 +7,30 @@
 %  {\Glsplwhat}% link ucfirst cs
 %  {\GLSplwhat}% link all caps cs
 
+\glsaddkey{what}% key
+{}% default value
+{\glsentrywhat}% no link cs
+{\Glsentrywhat}% no link ucfirst cs
+{\glswhat}% link cs
+{\Glswhat}% link ucfirst cs
+{\GLSwhat}% link all caps cs
+
+\glsaddkey{whom}% key
+{}% default value
+{\glsentrywhom}% no link cs
+{\Glsentrywhom}% no link ucfirst cs
+{\glswhom}% link cs
+{\Glswhom}% link ucfirst cs
+{\GLSwhom}% link all caps cs
+
+\glsaddkey{plural-whom}% key
+{}% default value
+{\glsentryplwhom}% no link cs
+{\Glsentryplwhom}% no link ucfirst cs
+{\glsplwhom}% link cs
+{\Glsplwhom}% link ucfirst cs
+{\GLSplwhom}% link all caps cs
+
 \newglossaryentry{signature}{
     name = Signature,
     description = {Kodo/programos pėdsakas},
@@ -39,7 +63,8 @@
     name={Surogatinis Modelis},
     description={\ac{ml} modelis, aproksimuojantis kitą \ac{ml} modelį, kurio parametrai (svoriai) nėra žinomi},
     text={surogatinis modelis},
-    first={surogatinio modelio}
+    first={surogatinio modelio},
+    whom={surogatinio modelio},
 }
 
 \newglossaryentry{policy}{
@@ -52,4 +77,15 @@
     name={Maišymo Funkcija},
     description={\textit{angl. Hash Function}. Tai funkcija $f: \set{0,1}^* \rightarrow \set{0,1}^m$. Naudojama, kai iš begalinės įvesčių erdvės norima gauti fiksuoto dydžio ($m$) išvestį},
     text={maišymo funkcija}
+}
+
+\newglossaryentry{framework}{
+    name=Karkasas,
+    description={Nurodo specifines technologijas, naudojamus požymius ir perturbacijas, siekiamus tikslus \acs{ae} generacijai. Skirtas apibrėžti procesą ir įrankius, kuriuos naudojant būtų galima generuoti nurodytų tikslų siekiančius \acs{ae}},
+    text={varžymosi principais pagrįstų atakų karkasas},
+    short=karkasas,
+    what=karkasą,
+    plural=karkasai,
+    plural-whom=karkasų,
+    whom=karkaso
 }

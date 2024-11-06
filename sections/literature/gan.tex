@@ -1,9 +1,33 @@
-\subsection{GAN tipo modelių karkasai}\label{sec:literature:gan}
+\subsection{GAN tipo modelių \glspl{framework}}\label{sec:literature:gan}
 
-\ac{gan} modeliai paremti Generatyviniais Priešiškais Tinklais (\aclp{gan}), kurių veikimo principas yra du neuroniniai tinklai (generatorius ir diskriminatorius), žaidžiantys \gls{zeroSumGame} \citeplace. Kenkėjiško kodo obfuskacijos kontekste ir ypač \enquote{juodos dėžės} atvejais, diskriminatorius atlieka \gls{surrogateModel} vaidmenį. Bendras \ac{gan} modelių mokymosi etapas yra tokia seka:
+\acs{gan} modeliai paremti Generatyviniais Priešiškais Tinklais (\aclp{gan}), kurių veikimo principas yra du neuroniniai tinklai (generatorius ir diskriminatorius), žaidžiantys \gls{zeroSumGame} \citeplace. Kenkėjiško kodo obfuskacijos kontekste ir ypač \enquote{juodos dėžės} atvejais, diskriminatorius atlieka \gls{surrogateModel} vaidmenį. Bendras \ac{gan} modelių mokymosi etapas yra tokia seka:
 \begin{enumerate}
-    \item generatorius, naudodamas požymių vektorių ir tokios pačios dimensijos \enquote{triukšmo} (\textit{angl. noise}) vektorių, sugeneruoja perturbacijas
-    \item originali kenkėjiška programa modifikuojama pagal perturbacijas (sukuriamas \ac{ae})
-    \item diskriminatorius bando klasifikuoti sugeneruotą \ac{ae} (kenkėjiškas / nekenkėjiškas). Diskriminatoriaus klasifikacija lyginama su tikro detektoriaus klasifikacija. Jei ji teisinga -- atnaujinami generatoriaus parametrai pagal generatoriaus nuostolių funkciją. Kitu atveju, atnaujinami diskriminatoriaus parametrai pagal diskriminatoriaus nuostolių funkciją.
-    \item visa seka kartojama nustatytą kiekį kartų
+    \item Generatorius, naudodamas požymių vektorių ir tokios pačios dimensijos
+          \enquote{triukšmo} (\textit{angl. noise}) vektorių, sugeneruoja perturbacijas.
+    \item Originali kenkėjiška programa modifikuojama pagal perturbacijas (sukuriamas
+          \ac{ae}).
+    \item Diskriminatorius bando klasifikuoti sugeneruotą \ac{ae} (kenkėjiškas /
+          nekenkėjiškas). Diskriminatoriaus klasifikacija lyginama su tikro detektoriaus
+          klasifikacija. Jei ji teisinga -- atnaujinami generatoriaus parametrai pagal
+          generatoriaus nuostolių funkciją. Kitu atveju, atnaujinami diskriminatoriaus
+          parametrai pagal diskriminatoriaus nuostolių funkciją.
+    \item Visa seka kartojama nustatytą kiekį kartų.
 \end{enumerate} \citeplace.
+
+\begin{describeModel}{MalGAN}{\cite{huGeneratingAdversarialMalware2017}}
+    \purpose{
+        Efektyviai išvengti \acs{ae} aptikimo, kai \acs{ml} kenkėjiškų programų detektoriaus implementacija nežinoma (\enquote{juodos dėžės} atvejis)
+    }
+    \surrogate{
+        Daugiasluoksnis tiesioginio sklidimo neuroninis tinklas -- klasifikatorius. Įvestis -- programos požymių vektorius. Išvestis -- klasifikacija į kenksmingą arba nekensmingą. Šis tinklas taip pat naudojamas kaip diskriminatorius \acs{gan} architektūroje.
+    }
+    \mainModel{
+        Daugiasluoksnis tiesioginio sklidimo neuroninis tinklas. Įvestis -- programos požymių vektorius ir tokios pačios dimensijos \enquote{triukšmo} vektorius. Išvestis -- modifikuotas požymių vektorius. Šis tinklas naudojamas kaip generatorius \acs{gan} architektūroje.
+    }
+    \features{
+        \item \enquote{MalGan} straipsnyje naudojami tik \acs{api} vardų požymiai, patenkantys į PE formato programų požymių kategoriją (žr. \ref{sec:literature:features:pe}), tačiau autoriai nurodo, jog gali būti naudojami bet kokie požymiai.
+    }
+    \perturbations{
+        \item Semantinės perturbacijos (\ref{sec:literature:perturbations:semantic}) -- nereikalingų \acs{api} vardų požymių pridėjimas
+    }
+\end{describeModel}

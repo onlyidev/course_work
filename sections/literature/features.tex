@@ -1,14 +1,18 @@
 \subsection{Naudojami požymiai}\label{sec:literature:features}
-\color{red}
-Pirmasis veiksmas treniruojant ar naudojant \ac{ml} modelį, paremtą neuroniniais tinklais, yra paversti įvesties duomenis į požymių vektorių \citeplace. Kenkėjiško kodo obfuskacijos kontekste, požymių pasirinkimas nėra vienareikšmis, o įeina į karkaso apibrėžimą. Šioje sekcijoje apžvelgiami ir klasifikuojami \acs{gan}, \acs{rl} ir \acs{genetic} modelių tipų karkasų naudojami požymiai.
-\color{black}
+\Gls{adversarial} taikosi į \acs{ml} modeliais paremtus kenkėjiškų programų detektorius. Šie detektoriai yra klasifikatoriai -- pateiktį (programą) klasifikuoja kaip kenkėjišką (\textit{angl. malicious}) arba nekenkėjišką (\textit{angl. benign}). Kadangi programos nėra fiksuoto dydžio, klasifikatoriai remiasi programų požymiais, kurie gaunami atliekant požymių ištraukimą (\textit{angl. feature extraction}). Laikoma, jog \enquote{juodos dėžės} atvejais sužinoti kokius tiksliai požymius vertina kenkėjiškų programų detektorius yra neįmanoma, tad \glsplwhom{framework} apibrėžimuose, priklausomai nuo jų specifikos ir tikslų, neretai pateikiami jų vertinami programų požymiai. Šioje sekcijoje išskiriami ir klasifikuojami mokslinėje literatūroje minimi požymiai.
+
+\subsubsection{\acs{pe} formato programų požymiai}\label{sec:literature:features:pe}
 \begin{itemize}
     \item \textbf{\acs{dll} vardai (arba \acs{api} vardai \cite{huGeneratingAdversarialMalware2017})} \cite{zhongMalFoxCamouflagedAdversarial2024}. \acs{pe} faile turi būti nurodyti visi naudojami \acs{dll}. Prieš pradedant treniruoti \acs{ml} modelį, atliekama visų turimų programų analizė ir nustatoma visų naudojamų \acs{dll} aibė $D$. Tarkime $|D| = n$. Tuomet, požymių vektorius programai, naudojančiai $X \subseteq D$ \acs{dll}, bus $n$-matis dvejetainis vektorius, kurio $i$-asis elementas yra $\begin{cases}
-        0, \text{ jei } D_i \not \in X,\\
+        0, \text{ jei } D_i \not \in X, \\
         1, \text{ jei } D_i \in X.
     \end{cases}$ Čia $D_i$ -- $i$-asis $D$ elementas.
-    \item \textbf{$n$-gramos} \cite{zhuNgramMalGANEvading2022}. Dažniausiai sutinkamos skaitmeniniame natūraliosios kalbos apdorojime (\acs{nlp}). Tai yra $n$ žodžių junginiai, arba, sukompiliuotų programų apdorojimo kontekste, $n$ baitų junginiai. Nustatant požymių vektorių, visos $n$-gramos surikiuojamos pagal pasikartojimą programoje mažėjimo tvarka (\enquote{populiariausios} viršuje). Iš pirmų $m$ reikšmių sudaromas $m$-matis vektorius -- tai ir yra požymių vektorius.
+    \item \textbf{\acs{pe} metaduomenys} \cite{andersonLearningEvadeStatic2018}. Tai visi \acs{pe} formato faile esantys metaduomenys, tokie, kaip sekcijų pavadinimai, sekcijų dydžiai, \enquote{ImportTable} ir \enquote{ExportTable} metaduomenys ir kt. Formuojant požymių vektorių skaičiuojama metaduomenų \gls{hashfunction}.
+\end{itemize}
+
+\subsubsection{Baitų lygio požymiai (gali būti ištraukiami iš bet kokio formato failų)}
+\begin{itemize}
+    \item \textbf{Prasmingų žodžių (angl. Strings) kiekis} \cite{andersonLearningEvadeStatic2018}. Prasmingus žodžius suprantame kaip turinčius prasmę žmogui \textit{(angl. human readable)}. Tai gali būti URL, failų keliai \textit{(angl. file paths)} ar registro raktų pavadinimai. Kadangi prasmingų žodžių kiekis tėra vienas skaičius, požymių vektorius dažniausiai formuojamas prijungiant ir kitus požymius.
     \item \textbf{Baitų/entropijos histograma} \cite{saxeDeepNeuralNetwork2015}. Specifinis metodas, užkoduojantis dažniausiai pasikartojančias baitų ir entropijos poras $256$ dimensijų vektoriumi.
-    \item \textbf{\acs{pe} metaduomenys} \cite{andersonLearningEvadeStatic2018}. Tai visi \acs{pe} formate faile esantys metaduomenys, tokie, kaip sekcijų pavadinimai, sekcijų dydžiai, \enquote{ImportTable} ir \enquote{ExportTable} metaduomenys ir kt. Formuojant požymių vektorių skaičiuojama metaduomenų \gls{hashfunction}.
-    \item \textbf{Prasmingų žodžių (angl. Strings) kiekis} \cite{andersonLearningEvadeStatic2018}. Prasmingus žodžius suprantame kaip turinčius prasmę žmogui \textit{(angl. Human Readable)}. Tai gali būti URL, failų keliai \textit{(angl. File Paths)} ar registro raktų pavadinimai. Kadangi prasmingų žodžių kiekis tėra vienas skaičius, požymių dažniausiai formuojamas prijungiant ir kitus požymius.
+    \item \textbf{$n$-gramos} \cite{zhuNgramMalGANEvading2022}. Dažniausiai sutinkamos skaitmeniniame natūraliosios kalbos apdorojime (\acs{nlp}). Tai yra $n$ žodžių junginiai, arba, sukompiliuotų programų apdorojimo kontekste, $n$ baitų junginiai. Nustatant požymių vektorių, visos $n$-gramos surikiuojamos pagal pasikartojimą programoje mažėjimo tvarka (\enquote{populiariausios} viršuje). Iš pirmų $m$ reikšmių sudaromas $m$-matis vektorius -- tai ir yra požymių vektorius.
 \end{itemize}
