@@ -1,10 +1,55 @@
 \subsection{Skatinamojo mokymosi tipo modelių \glspl{framework}}\label{sec:literature:rl}
 
-Skatinamojo mokymosi (\acs{rl}) modeliai susideda iš agento ir aplinkos. Aplinka susideda iš informatyvių požymių ištraukimo metodo (\textit{angl. feature extraction}) ir kenkėjiškų programų detektoriaus. Agentas -- tai algoritmas ar neuroninis tinklas, kurio tikslas yra surasti optimalią strategiją (\gls{policy}). Šiuo atveju strategija susideda iš perturbacijų (žr. \ref{sec:literature:perturbations}) \citeplace. Bendras \ac{rl} modelių mokymosi etapas yra tokia seka:
+Skatinamojo mokymosi (\acs{rl}) modeliai susideda iš agento ir aplinkos.
+Aplinka susideda iš informatyvių požymių ištraukimo metodo (\textit{angl.
+    feature extraction}) ir kenkėjiškų programų detektoriaus. Šiuo atveju aplinkos
+būsenų erdvė $S$ yra požymių vektorių erdvė. Agentas -- tai algoritmas ar neuroninis
+tinklas, kurio tikslas yra surasti optimalią strategiją (\gls{policy}). Šiuo
+atveju strategijos veiksmų erdvė $A$ susideda iš perturbacijų (žr.
+\ref{sec:literature:perturbations}) \citeplace. Bendras \ac{rl} modelių
+mokymosi etapas yra tokia seka:
 \begin{enumerate}
-    \item agentas, naudodamas dabartinę aplinkos būseną ir praeito veiksmo atlygį (\textit{angl. reward}), parenka sekantį veiksmą iš galimų veiksmų aibės
-    \item atliekamas veiksmas -- perturbuojama programa arba požymių vektorius (priklauso nuo \glswhom{framework})
-    \item gaunami aplinkos kitimo įverčiai -- nauja būsena ir atlygis, skaičiuojamas pagal detektoriaus klasifikacijos rezultatą
-    \item seka kartojama tol, kol agentas nelaiko strategijos optimalia arba nustatytą kiekį kartų
+    \item agentas, naudodamas dabartinę aplinkos būseną ir praeito veiksmo atlygį
+          (\textit{angl. reward}), parenka sekantį veiksmą iš galimų veiksmų aibės ir taiko mokymosi algoritmą (algoritmas priklauso nuo agento implementacijos)
+    \item atliekamas veiksmas -- perturbuojama programa arba požymių vektorius (priklauso
+          nuo \glswhom{framework})
+    \item gaunami aplinkos kitimo įverčiai -- nauja būsena ir atlygis, skaičiuojamas
+          pagal detektoriaus klasifikacijos rezultatą
+    \item seka kartojama tol, kol agentas nelaiko strategijos optimalia arba nustatytą
+          kiekį kartų
 \end{enumerate}
 \citeplace{}
+
+\begin{describeFramework}{DQEAF}{\cite{fangEvadingMalwareEngines2019}}
+    \purpose{Parodyti, jog \acs{ml} kenkėjiškų programų detektoriai, ypač modeliai, treniruoti prižiūrimu mokymusi, yra pažeidžiami \glswhom{adversarial}}
+    \surrogate{\acs{rl} karkasuose nenaudojami surogatiniai modeliai. Kaip \enquote{juodos dėžės} detektorius pasirinktas \acs{gbdt} modelis.}
+    \mainModel{Agentas implementuotas kaip gilusis $Q$-tinklas (\acs{cnn} praplėtimas, kai tinklas naudojamas kaip \glswhom{qfunction} aproksimacija). Taip pat taikomas prioritetizuotas patirčių pakartojimo metodas (\textit{angl. prioritized experience replay}), kuomet agentas treniruojamas tik su aukštą atlygį gavusiais perėjimais ($S \times A$).}
+    \features{Požymių vektorius taip pat apibrėžia visų būsenų erdvę $S$. Šiuo atveju $S = \mathbb{R}^{513}$.\vspace{5pt}}{
+        \item Baitų lygio požymiai (\ref{sec:literature:features:byte}) -- baitų/entropijos histograma.
+    }
+    \perturbations{Perturbacijos apibrėžia visų galimų agento veiksmų erdvę $A$. Šiuo atveju $A = \set{0,1}^4$.\vspace{-10pt}}{
+        \item Baitų lygio perturbacijos (\ref{sec:literature:perturbations:byte})
+        \begin{itemize}
+            \item \enquote{ARBE}
+            \item \enquote{ARI}
+            \item \enquote{ARS}
+            \item \enquote{RS}
+        \end{itemize}
+    }
+\end{describeFramework}
+
+\begin{describeFramework}{Andersono}{\cite{andersonLearningEvadeStatic2018}}
+\purpose{}
+\surrogate{}
+\mainModel{}
+% \features{}{}
+% \perturbations{}{}
+\end{describeFramework}
+
+\begin{describeFramework}{MalInfo}{\cite{zhongReinforcementLearningBased2022}}
+\purpose{}
+\surrogate{}
+\mainModel{}
+% \features{}{}
+% \perturbations{}{}
+\end{describeFramework}

@@ -6,10 +6,10 @@ originalų funkcionalumą. Perturbacijos gali būti sudėtingos ir apimti visą
 programą (pvz. visos programos užšifravimas ir pridėjimas prie kitos
 programos), semantinės (pvz. tam tikrų mašininio kodo instrukcijų keitimas į
 ekvivalentų rezultatą pasiekiančias) arba baitų lygio (pvz. nulinių baitų
-pridėjimas programos gale) \citeplace. Perturbacijų parinkimas įeina į \glswhom{framework}
-apibrėžimą. Šioje sekcijoje aptariamos mokslinėje literatūroje minimos
-perturbacijos.
-\subsubsection{Baitų lygio perturbacijos}
+pridėjimas programos gale) \citeplace. Perturbacijų parinkimas įeina į
+\glswhom{framework} apibrėžimą. Šioje sekcijoje aptariamos mokslinėje
+literatūroje minimos perturbacijos.
+\subsubsection{Baitų lygio perturbacijos}\label{sec:literature:perturbations:byte}
 \begin{itemize}
     \item \textbf{\enquote{ARBE} (\textit{Append Random Bytes at the End})} \cite{fangEvadingMalwareEngines2019}. \acs{pe} formato failo gale pridedami atsitiktiniai baitai.
     \item \textbf{\enquote{ARI} (\textit{Append Random Import})} \cite{fangEvadingMalwareEngines2019}. \acs{pe} formato failo \enquote{ImportAddressTable} lentelėje pridedama atsitiktinai pavadinta biblioteka su atsitiktinai pavadinta funkcija.
@@ -29,7 +29,8 @@ perturbacijos.
     \item \textbf{Nereikalingų \hyperref[feature:dll]{DLL/API vardų} požymių pridėjimas} \cite{huGeneratingAdversarialMalware2017}. \acs{pe} formato faile \enquote{ImportTable} lentelėje pridedami originalios programos nenaudojami \acs{dll}/\acs{api} vardai.
     \item \textbf{\enquote{Binary Rewriting}} \cite{demetrioAdversarialEXEmplesSurvey2021}. Semantinis instrukcijų perrašymas. Pavyzdžiui, $A+B$ instrukcijos pakeitimas į $A-(-B)$.
 \end{itemize}
-\subsubsection{Kompleksinės perturbacijos}
+
+\subsubsection{Kompleksinės perturbacijos}\label{sec:literature:perturbations:complex}
 \begin{itemize}
     \item \textbf{\enquote{Obfusmal}} \cite{zhongMalFoxCamouflagedAdversarial2024}. Užšifruojama originalios programos kodo sekcija. Sukuriama ir originalios programos gale pridedama programa \textit{Shell.dll}, kurioje laikomas atšifravimo raktas, originalios programos kodo sekcijos adresas ir dydis. Be to, \textit{Shell.dll} geba atšifruoti originalios programos kodo sekciją ir jai perduoti kontrolę. \textit{Shell.dll} pridedama prie naudojamų \acs{dll}, o programos pradžios taškas nustatomas į \textit{Shell.dll} pradžios tašką. Iliustracija pateikiama \ref{fig:perturbations}-ame pav.
     \item \textbf{\enquote{Stealmal}} \cite{zhongMalFoxCamouflagedAdversarial2024}. Visa originali programa užšifruojama ir pridedama prie programos \textit{Shell.exe} galo. \textit{Shell.exe} geba atšifruoti originalią programą ir perduoti jai kontrolę. Iliustracija pateikiama \ref{fig:perturbations}-ame pav.

@@ -1,32 +1,29 @@
-\newenvironment{describeModel}[2]{
+\newenvironment{describeFramework}[2]{
     \newcommand{\purpose}[1]{\gdef\Purpose{##1}}
     \newcommand{\surrogate}[1]{\gdef\Surrogate{##1}}
     \newcommand{\mainModel}[1]{\gdef\MainModel{##1}}
-    \newcommand{\features}[1]{\gdef\Features{##1}}
-    \newcommand{\perturbations}[1]{\gdef\Perturbations{##1}}
+    \newcommand{\features}[2]{\gdef\PreFeatures{##1} \gdef\Features{##2}}
+    \newcommand{\perturbations}[2]{\gdef\PrePerturbations{##1} \gdef\Perturbations{##2}}
 
     \def\Purpose{}
     \def\Surrogate{}
     \def\MainModel{}
+    \def\PreFeatures{}
     \def\Features{\item}
+    \def\PrePerturbations{}
     \def\Perturbations{\item}
     \def\Name{#1}
     \def\Citation{#2}
-}{
     \subsubsection{\enquote{\Name}}\label{sec:literature:framework:\Name}
-    % \begin{itemize}
-    %     \item \textbf{Tikslas}: \Purpose{}
-    %     \item \textbf{\Glswhom{surrogateModel} tipas ir architektūra}: \Surrogate{}
-    %     \item \textbf{\acs{ml} modelio tipas ir architektūra}: \MainModel{}
-    %     \item \textbf{Naudojami požymiai}: \Features{}
-    %     \item \textbf{Naudojamos perturbacijos}: \Perturbations{}
-    % \end{itemize}
+}{
     \begin{longtable}{p{0.15\textwidth}|p{0.85\textwidth}}
         \textbf{Tikslas}              & \Purpose{}                                     \\ \toprule
         \textbf{\Gls{surrogateModel}} & \Surrogate{}                                   \\ \midrule
         \textbf{\acs{ml} modelis}     & \MainModel{}                                   \\ \midrule
-        \textbf{Požymiai}             & \begin{itemize} \Features{} \end{itemize}      \\ \midrule
-        \textbf{Perturbacijos}        & \begin{itemize} \Perturbations{} \end{itemize} \\ \bottomrule
+        \textbf{Požymiai}             & \PreFeatures{} \vspace{-10pt} \begin{itemize} \Features{} \end{itemize}      \\ \midrule
+        \textbf{Perturbacijos}        & \PrePerturbations{} \vspace{-10pt} \begin{itemize} \Perturbations{} \end{itemize} \\ \bottomrule
     \end{longtable}
-    \Citation{}
+    \noindent\Citation{}
 }
+
+\newcommand{\refFramework}[1]{\enquote{#1} (\ref{sec:literature:framework:#1})}

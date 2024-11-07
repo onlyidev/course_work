@@ -42,6 +42,8 @@
     name = Adversarial attacks,
     description = {Varžymosi principais pagrįstos atakos},
     text=varžymosi principais pagrįstos atakos,
+    what=varžymosi principais pagrįstas atakas,
+    whom={varžymosi principais pagrįstoms atakoms},
     first = {varžymosi principais pagrįstoms atakoms (\textit{angl. adversarial attacks})},
 }
 
@@ -69,7 +71,7 @@
 
 \newglossaryentry{policy}{
     name=Strategija,
-    description={\textit{angl. Policy}. \acs{rl} modelio atliekama veiksmų seka},
+    description={\textit{angl. Policy}. Tai funkcija $\pi : S \times A \rightarrow \set{0,1}$, kur $A,S$ yra galimų veiksmų erdvė (\textit{angl. Action Space}) ir galimų būsenų erdvė (\textit{angl. State Space}) atitinkamai. Šią funkciją \acs{rl} modelis \enquote{išmoksta} mokymosi metu},
     text={\textit{angl. policy}}
 }
 
@@ -88,4 +90,11 @@
     plural=karkasai,
     plural-whom=karkasų,
     whom=karkaso
+}
+
+\newglossaryentry{qfunction}{
+    name=Q-Funkcija,
+    description={$Q: S \times A \rightarrow \mathbb{R}$, kur $A,S$ yra galimų veiksmų erdvė (\textit{angl. Action Space}) ir galimų būsenų erdvė (\textit{angl. State Space}) atitinkamai},
+    text=$Q$-funkcija,
+    whom=$Q$-funkcijos
 }

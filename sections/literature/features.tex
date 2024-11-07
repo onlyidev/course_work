@@ -10,9 +10,9 @@
     \item \textbf{\acs{pe} metaduomenys} \cite{andersonLearningEvadeStatic2018}. Tai visi \acs{pe} formato faile esantys metaduomenys, tokie, kaip sekcijų pavadinimai, sekcijų dydžiai, \enquote{ImportTable} ir \enquote{ExportTable} metaduomenys ir kt. Formuojant požymių vektorių skaičiuojama metaduomenų \gls{hashfunction}.
 \end{itemize}
 
-\subsubsection{Baitų lygio požymiai (gali būti ištraukiami iš bet kokio formato failų)}
+\subsubsection{Baitų lygio požymiai (gali būti ištraukiami iš bet kokio formato failų)}\label{sec:literature:features:byte}
 \begin{itemize}
     \item \textbf{Prasmingų žodžių (angl. Strings) kiekis} \cite{andersonLearningEvadeStatic2018}. Prasmingus žodžius suprantame kaip turinčius prasmę žmogui \textit{(angl. human readable)}. Tai gali būti URL, failų keliai \textit{(angl. file paths)} ar registro raktų pavadinimai. Kadangi prasmingų žodžių kiekis tėra vienas skaičius, požymių vektorius dažniausiai formuojamas prijungiant ir kitus požymius.
-    \item \textbf{Baitų/entropijos histograma} \cite{saxeDeepNeuralNetwork2015}. Specifinis metodas, užkoduojantis dažniausiai pasikartojančias baitų ir entropijos poras $256$ dimensijų vektoriumi.
+    \item \textbf{Baitų/entropijos histograma} \cite{saxeDeepNeuralNetwork2015}. Specifinis metodas, užkoduojantis dažniausiai pasikartojančias baitų ir entropijos poras $n$ dimensijų vektoriumi.
     \item \textbf{$n$-gramos} \cite{zhuNgramMalGANEvading2022}. Dažniausiai sutinkamos skaitmeniniame natūraliosios kalbos apdorojime (\acs{nlp}). Tai yra $n$ žodžių junginiai, arba, sukompiliuotų programų apdorojimo kontekste, $n$ baitų junginiai. Nustatant požymių vektorių, visos $n$-gramos surikiuojamos pagal pasikartojimą programoje mažėjimo tvarka (\enquote{populiariausios} viršuje). Iš pirmų $m$ reikšmių sudaromas $m$-matis vektorius -- tai ir yra požymių vektorius.
 \end{itemize}
