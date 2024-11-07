@@ -9,14 +9,14 @@ atveju strategijos veiksmų erdvė $A$ susideda iš perturbacijų (žr.
 \ref{sec:literature:perturbations}) \citeplace. Bendras \ac{rl} modelių
 mokymosi etapas yra tokia seka:
 \begin{enumerate}
-    \item agentas, naudodamas dabartinę aplinkos būseną ir praeito veiksmo atlygį
-          (\textit{angl. reward}), parenka sekantį veiksmą iš galimų veiksmų aibės ir taiko mokymosi algoritmą (algoritmas priklauso nuo agento implementacijos)
-    \item atliekamas veiksmas -- perturbuojama programa arba požymių vektorius (priklauso
-          nuo \glswhom{framework})
-    \item gaunami aplinkos kitimo įverčiai -- nauja būsena ir atlygis, skaičiuojamas
-          pagal detektoriaus klasifikacijos rezultatą
-    \item seka kartojama tol, kol agentas nelaiko strategijos optimalia arba nustatytą
-          kiekį kartų
+    \item Agentas, naudodamas dabartinę aplinkos būseną ir praeito veiksmo atlygį
+          (\textit{angl. reward}), parenka sekantį veiksmą iš galimų veiksmų aibės ir taiko mokymosi algoritmą (algoritmas priklauso nuo agento implementacijos).
+    \item Atliekamas veiksmas -- perturbuojama programa arba požymių vektorius (priklauso
+          nuo \glswhom{framework}).
+    \item Gaunami aplinkos kitimo įverčiai -- nauja būsena ir atlygis, skaičiuojamas
+          pagal detektoriaus klasifikacijos rezultatą.
+    \item Seka kartojama tol, kol agentas nelaiko strategijos optimalia arba nustatytą
+          kiekį kartų.
 \end{enumerate}
 \citeplace{}
 
@@ -38,18 +38,17 @@ mokymosi etapas yra tokia seka:
     }
 \end{describeFramework}
 
-\begin{describeFramework}{Andersono}{\cite{andersonLearningEvadeStatic2018}}
-\purpose{}
-\surrogate{}
-\mainModel{}
-% \features{}{}
-% \perturbations{}{}
-\end{describeFramework}
+\subsubsection{\enquote{Andersono}}
+\color{red} PLAN TO NOT INCLUDE
+\color{black}
 
 \begin{describeFramework}{MalInfo}{\cite{zhongReinforcementLearningBased2022}}
-\purpose{}
-\surrogate{}
-\mainModel{}
-% \features{}{}
-% \perturbations{}{}
+\purpose{Surasti optimalią obfuskacijos strategiją konkrečiai programai, pagal kurią sukurtas \acs{ae} nebūtų aptiktas komercinių kenkėjiškų programų detektorių.}
+\surrogate{\acs{rl} surogatinis modelis nenaudojamas. \enquote{Juodos dėžės} detektoriumi pasirinkti komerciniai detektoriai (\enquote{VirusTotal})}
+\mainModel{Agentas implementuotas kaip klasikiniai \acs{ml} algoritmai (konkrečiai dinaminis programavimas ir skirtumų laike (\textit{angl. temporal difference}) algoritmas).}
+\features{Agentas nėra neuroninis tinklas ir požymių iš programos netraukia. Agentas mokosi tik iš perėjimų, o būsenų erdvė $S$ yra originali programa ir perturbuoti jos variantai. Teoriškai perturbuotų programos variantų galėtų būti be galo daug, tuomet $S = A^\infty, |S| = \aleph_0$, tačiau autoriai nurodo, jog daugiau nei 3 sluoksniai kompleksinių perturbacijų reikšmingai paveikia programos veikimo laiką, o tai gali \enquote{sukelti įtarimų} komerciniams detektoriams. Todėl pasirinkta $S = A^3$ \vspace{-20pt}}{\item[]}
+\perturbations{$A = \set{0,1,2,3}$ \vspace{5pt}}{
+    \item \enquote{Null} perturbacija -- naudinga tik formaliam pilnumui (atitinka nulinį $A$ veiksmą)
+    \item Visos kompleksinės perturbacijos (\ref{sec:literature:perturbations:complex}), t.~y. tokios pačios, kaip ir \refFramework{MalFox} \glswhom{framework}.
+}
 \end{describeFramework}
