@@ -1,9 +1,9 @@
 \subsection{GAN tipo modelių \glspl{framework}}\label{sec:literature:gan}
 
-\acs{gan} modeliai paremti Generatyviniais Priešiškais Tinklais (\aclp{gan}), kurių veikimo principas yra du neuroniniai tinklai (generatorius ir diskriminatorius), žaidžiantys \gls{zeroSumGame} \citeplace. Kenkėjiško kodo obfuskacijos kontekste ir ypač \enquote{juodos dėžės} atvejais, diskriminatorius atlieka \gls{surrogateModel} vaidmenį. Bendras \ac{gan} modelių mokymosi etapas yra tokia seka:
+\acs{gan} modelių karkasai paremti Generatyviniais Priešiškais Tinklais (\aclp{gan}), kurių veikimo principas yra du neuroniniai tinklai (generatorius ir diskriminatorius), žaidžiantys \gls{zeroSumGame} \citeplace. Kenkėjiško kodo obfuskacijos kontekste ir ypač \enquote{juodos dėžės} atvejais, diskriminatorius atlieka \gls{surrogateModel} vaidmenį. Bendras \ac{gan} modelių mokymosi etapas yra tokia seka:
 \begin{enumerate}
     \item Generatorius, naudodamas požymių vektorių ir tokios pačios dimensijos
-          \enquote{triukšmo} (\textit{angl. noise}) vektorių, sugeneruoja perturbacijas.
+          \enquote{triukšmo} (\angl{noise}) vektorių, sugeneruoja perturbacijas.
     \item Originali kenkėjiška programa modifikuojama pagal perturbacijas (sukuriamas
           \ac{ae}).
     \item Diskriminatorius bando klasifikuoti sugeneruotą \ac{ae} (kenkėjiškas /
@@ -25,7 +25,7 @@
         Daugiasluoksnis tiesioginio sklidimo neuroninis tinklas. Įvestis -- programos požymių vektorius ir tokios pačios dimensijos \enquote{triukšmo} vektorius. Išvestis -- modifikuotas požymių vektorius. Šis tinklas naudojamas kaip generatorius \acs{gan} architektūroje.
     }
     \features{}{
-        \item \enquote{MalGan} straipsnyje naudojami tik \acs{api} vardų požymiai, patenkantys į PE formato programų požymių kategoriją (žr. \ref{sec:literature:features:pe}), tačiau autoriai nurodo, jog gali būti naudojami bet kokie požymiai\footnote{\label{footnote:detector-assumptions}Autoriai nagrinėja \enquote{juodos dėžės} atvejį su prielaida, jog detektoriaus naudojami požymiai yra žinomi.}.
+        \item \textit{MalGan} straipsnyje naudojami tik \acs{api} vardų požymiai, patenkantys į PE formato programų požymių kategoriją (žr. \ref{sec:literature:features:pe}), tačiau autoriai nurodo, jog gali būti naudojami bet kokie požymiai\footnote{\label{footnote:detector-assumptions}autoriai nagrinėja \enquote{juodos dėžės} atvejį su prielaida, jog detektoriaus naudojami požymiai yra žinomi.}.
     }
     \perturbations{}{
         \item Semantinės perturbacijos (\ref{sec:literature:perturbations:semantic}) --
@@ -48,12 +48,12 @@
         tačiau pažymi, jog norint gauti sugeneruotus požymių vektorius užtenka pridėti
         reikiamus baitus programos gale. Tai atitinka
         \ref{sec:literature:perturbations:byte} apibrėžtą \vspace{5pt}}{
-        \item baitų lygio perturbaciją \enquote{ARBE}, tik šiuo atveju pridedami baitai
+        \item baitų lygio perturbaciją \textit{ARBE}, tik šiuo atveju pridedami baitai
         nebūtų atsitiktiniai, o norimos $n$-gramos. }
 \end{describeFramework}
 
 \begin{describeFramework}{MalFox}{\cite{zhongMalFoxCamouflagedAdversarial2024}}
-    \purpose{Generuoti \acs{ae}, kurių neaptiktų komerciniai detektoriai (prieš tai aptarti \glspl{framework} eksperimentams kaip nepriklausomą detektorių naudojo tokius \acs{ml} modelius, kaip \acs{svm}, \acs{knn}, \acs{gbdt} ir kt., bet ne komercinius detektorius). Šio \glswhom{framework} detektorius yra \enquote{VirusTotal} (viešai prieinama paslauga, agreguojanti virš 70 komercinių kenkėjiškų programų detektorių).}
+    \purpose{Generuoti \acs{ae}, kurių neaptiktų komerciniai detektoriai (prieš tai aptarti \glspl{framework} eksperimentams kaip nepriklausomą detektorių naudojo tokius \acs{ml} modelius, kaip \acs{svm}, \acs{knn}, \acs{gbdt} ir kt., bet ne komercinius detektorius). Šio \glswhom{framework} detektorius yra \textit{VirusTotal} (viešai prieinama paslauga, agreguojanti virš 70 komercinių kenkėjiškų programų detektorių).}
     \surrogate{Surogatinis modelis, kaip ir kituose \acs{gan} tipo modelių karkasuose, naudojamas kaip diskriminatorius. Įvestis -- perturbuota programa. Išvestis -- klasifikacija į kenksmingą arba nekenksmingą. Implementacija -- konvoliucinis neuroninis tinklas (\acs{cnn}).}
     \mainModel{Standartinis \acs{gan} generatorius, požymių vektorių sujungiantis su \enquote{triukšmo} vektoriumi. Implementacija -- konvoliucinis neuroninis tinklas (\acs{cnn}).}
     \features{}{

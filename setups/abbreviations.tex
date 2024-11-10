@@ -1,80 +1,85 @@
 % https://ctan.math.illinois.edu/macros/latex/contrib/acro/acro-manual.pdf
 
-\acsetup{make-links=true}
+\acsetup{make-links=true,pages/display=all,pages/seq/use=false,pages/fill={ },}
 
 \DeclareAcronym{di}{
   short = DI,
-  long  = Dirbtinis Intelektas,
+  long = {dirbtinis intelektas},
+  extra={\angl{artificial Intelligence}},
   short-plural-form = DI,
-  long-plural-form = Dirbtinio Intelekto 
+  long-plural-form ={dirbtinio intelekto}
   % highjack plural form for possesive, because plural will never be used
 }
 
 \DeclareAcronym{ml}{
   short=ML,
-  long={Mašininis Mokymasis},
-  extra={\textit{angl. Machine Learning}}
+  long={mašininis mokymasis},
+  extra={\angl{machine learning}}
 }
 
 \DeclareAcronym{gan}{
   short=GAN,
-  long ={Generatyviniai Priešiški Tinklai (\textit{angl. Generative Adversarial Networks})},
-  long-plural-form={\textit{angl. Generative Adversarial Networks}}, % highjack plural for english
+  long ={generatyviniai priešiški tinklai (\angl{generative adversarial networks})},
+  long-plural-form={\angl{generative adversarial networks}}, % highjack plural for english
   extra={generatyviniai varžymosi principais pagrįsti tinklai}
 }
 
 \DeclareAcronym{ae}{
   short=AE,
-  long={Varžymosi principais pagrįstomis atakomis obfuskuoti kenkėjiško kodo pavyzdžiai (\textit{angl. Adversarial Examples})},
+  long={varžymosi principais pagrįstomis atakomis obfuskuoti kenkėjiško kodo pavyzdžiai},
+  extra={\angl{adversarial examples}}
 }
 
 \DeclareAcronym{genetic}{
   short=GA,
-  long={Genetiniais algoritmais pagrįstas \ac{ml} modelis}
+  long={genetiniais algoritmais pagrįstas \ac{ml} modelis},
+  extra={\angl{genetic algorithms}}
 }
 
 \DeclareAcronym{rl}{
   short=RL,
-  long={Skatinamasis Mokymasis (\textit{angl. Reinforcement Learning})}
+  long={skatinamasis mokymasis},
+  extra={\angl{reinforcement learning}}
 }
 
 \DeclareAcronym{dll}{
   short=DLL,
-  long={\textit{angl. Dyanmic-Link Library}}
+  long={dinamiškai susietas biblioteka},
+  extra={\angl{dyanmic-link library}}
 }
 
 \DeclareAcronym{pe}{
   short=PE,
-  long={\textit{angl. Portable Executable}}
+  long={\angl{portable executable}}
 }
 
 \DeclareAcronym{nlp}{
   short=NLP,
-  long={Skaitmeninis natūraliosios kalbos apdorojimas},
-  extra={\textit{angl. Natural Language Processing}}
+  long={skaitmeninis natūraliosios kalbos apdorojimas},
+  extra={\angl{natural language processing}}
 }
 
 \DeclareAcronym{api}{
   short=API,
-  long={\textit{angl. Application Programming Interface}}
+  long={\angl{application programming interface}}
 }
 
 \DeclareAcronym{svm}{
   short=SVM,
-  long={\textit{angl. Support Vector Machine}. TODO}
+  long={\angl{support vector machine}}
 }
 
 \DeclareAcronym{gbdt}{
   short=GBDT,
-  long={\textit{angl. Gradient Boosted Decision Trees}. TODO}
+  long={\angl{gradient boosted decision trees}}
 }
 
 \DeclareAcronym{knn}{
   short=KNN,
-  long={\textit{angl. $K$-Nearest Neighbours}. TODO}
+  long={\angl{$K$-Nearest Neighbours}}
 }
 
 \DeclareAcronym{cnn}{
   short=CNN,
-  long={\textit{angl. Convolutional Neural Network}. TODO}
+  long={\angl{convolutional neural network}}
 }

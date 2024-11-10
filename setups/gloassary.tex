@@ -22,6 +22,13 @@
 {\glswhom}% link cs
 {\Glswhom}% link ucfirst cs
 {\GLSwhom}% link all caps cs
+\glsaddkey{whose}% key
+{}% default value
+{\glsentrywhose}% no link cs
+{\Glsentrywhose}% no link ucfirst cs
+{\glswhose}% link cs
+{\Glswhose}% link ucfirst cs
+{\GLSwhose}% link all caps cs
 
 \glsaddkey{plural-whom}% key
 {}% default value
@@ -32,37 +39,38 @@
 {\GLSplwhom}% link all caps cs
 
 \newglossaryentry{signature}{
-    name = Signature,
-    description = {Kodo/programos pėdsakas},
+    name={Pėdsakas (\angl{Signature})},
+    description={Programos struktūros ir požymių santrauka, beveik unikaliai identifikuojanti programą (pvz. \gls{hashfunction})},
     text=pėdsakas,
-    first = {pėdsakais (\textit{angl. signature})},
+    first = {pėdsakais \angl{signature}},
 }
 
 \newglossaryentry{adversarial}{
-    name = Adversarial attacks,
-    description = {Varžymosi principais pagrįstos atakos},
+    name={Varžymosi principais pagrįstos atakos (\angl{Adversarial Attacks})},
+    description={Tai atakos, pritaikytos \enquote{apgauti} \acs{ml} klasifikatorius},
     text=varžymosi principais pagrįstos atakos,
     what=varžymosi principais pagrįstas atakas,
     whom={varžymosi principais pagrįstoms atakoms},
-    first = {varžymosi principais pagrįstoms atakoms (\textit{angl. adversarial attacks})},
+    whose={varžymosi principais pagrįstų atakų},
+    first = {varžymosi principais pagrįstoms atakoms \angl{adversarial attacks}},
 }
 
 \newglossaryentry{decisionBoundary}{
-    name = Decision Boundary,
-    description = {Sprendimų priėmimo riba. Paprasčiausiems \acs{ml} modeliams tai yra kreivė plokštumoje. Sudėtingesniems -- daugiadimensiniams modeliams -- daugdara (\textit{angl. manifold})},
+    name={Sprendimų priėmimo riba (\angl{Decision Boundary})},
+    description={Paprasčiausiems \acs{ml} modeliams tai yra kreivė plokštumoje. Sudėtingesniems -- daugiadimensiniams modeliams -- daugdara (\angl{manifold})},
     text=sprendimų priėmimo riba,
-    first = {(\textit{angl. decision boundary})},
+    first = {\angl{decision boundary}},
 }
 
 \newglossaryentry{zeroSumGame}{
-    name={Zero-sum Game},
+    name={Nulinės sumos žaidimas (\angl{Zero-Sum Game})},
     description={Dviejų žaidėjų žaidimas, kuriame galimas vienas laimėtojas. Laimėtojo laimėta suma yra lygi pralaimėtojo pralaimėtai sumai},
     text={nulinės sumos žaidimas},
-    first={nulinės sumos žaidimą (\textit{angl. zero-sum game})}
+    first={nulinės sumos žaidimą \angl{zero-sum game}}
 }
 
 \newglossaryentry{surrogateModel}{
-    name={Surogatinis Modelis},
+    name={Surogatinis Modelis (\angl{Surrogate Model})},
     description={\ac{ml} modelis, aproksimuojantis kitą \ac{ml} modelį, kurio parametrai (svoriai) nėra žinomi},
     text={surogatinis modelis},
     first={surogatinio modelio},
@@ -70,19 +78,19 @@
 }
 
 \newglossaryentry{policy}{
-    name=Strategija,
-    description={\textit{angl. Policy}. Tai funkcija $\pi : S \times A \rightarrow \set{0,1}$, kur $A,S$ yra galimų veiksmų erdvė (\textit{angl. Action Space}) ir galimų būsenų erdvė (\textit{angl. State Space}) atitinkamai. Šią funkciją \acs{rl} modelis \enquote{išmoksta} mokymosi metu},
-    text={\textit{angl. policy}}
+    name={Strategija (\angl{Policy})},
+    description={Tai funkcija $\pi : S \times A \rightarrow \set{0,1}$, čia $S$ -- galimų būsenų erdvė (\angl{State Space}), $A$ -- galimų veiksmų erdvė (\angl{Action Space}). Šią funkciją \acs{rl} modelis \enquote{išmoksta} mokymosi metu},
+    text={\angl{policy}}
 }
 
 \newglossaryentry{hashfunction}{
-    name={Maišymo Funkcija},
-    description={\textit{angl. Hash Function}. Tai funkcija $f: \set{0,1}^* \rightarrow \set{0,1}^m$. Naudojama, kai iš begalinės įvesčių erdvės norima gauti fiksuoto dydžio ($m$) išvestį},
+    name={Maišymo Funkcija (\angl{Hash Function})},
+    description={Tai funkcija $f: \set{0,1}^* \rightarrow \set{0,1}^m$. Naudojama, kai iš begalinės įvesčių erdvės norima gauti fiksuoto dydžio ($m$) išvestį},
     text={maišymo funkcija}
 }
 
 \newglossaryentry{framework}{
-    name=Karkasas,
+    name={Karkasas (\angl{Framework})},
     description={Nurodo specifines technologijas, naudojamus požymius ir perturbacijas, siekiamus tikslus \acs{ae} generacijai. Skirtas apibrėžti procesą ir įrankius, kuriuos naudojant būtų galima generuoti nurodytų tikslų siekiančius \acs{ae}},
     text={varžymosi principais pagrįstų atakų karkasas},
     short=karkasas,
@@ -93,8 +101,8 @@
 }
 
 \newglossaryentry{qfunction}{
-    name=Q-Funkcija,
-    description={$Q: S \times A \rightarrow \mathbb{R}$, kur $A,S$ yra galimų veiksmų erdvė (\textit{angl. Action Space}) ir galimų būsenų erdvė (\textit{angl. State Space}) atitinkamai},
+    name={Q-Funkcija (\angl{Q-Function})},
+    description={$Q: S \times A \rightarrow \mathbb{R}$, čia $S$ -- galimų būsenų erdvė (\angl{State Space}), $A$ -- galimų veiksmų erdvė (\angl{Action Space})},
     text=$Q$-funkcija,
     whom=$Q$-funkcijos
 }

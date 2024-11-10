@@ -1,37 +1,45 @@
 \subsection{Genetinių algoritmų tipo modelių \glspl{framework}}\label{sec:literature:genetic}
 
-Genetinai algoritmai (\acs{genetic}) yra viena seniausių mašininio mokymosi apraiškų; jų veikimas paremtas evoliucija \citeplace. Kenkėjiškų programų obfuskacijai \acs{ae} generavimas taikant \acs{genetic} yra tokia seka:
+Genetinai algoritmai (\acs{genetic}) yra viena seniausių mašininio mokymosi \acs{ml} apraiškų; jų veikimas paremtas evoliucija \citeplace. Kenkėjiškų programų obfuskacijai \acs{ae} generavimas taikant \acs{genetic} yra tokia seka:
 \begin{enumerate}
-    \item sukuriama pradinė populiacija (perturbacijos metodai pradinei populiacijai priklauso nuo \glswhom{framework})
-    \item atliekamas vertinimas naudojant detektorių\label{enum:genetic:eval}
-    \item Jei vertinimo metu nustatoma, jog \acs{ae} yra pakankamai geros kokybės (pvz. detektorius klasifikuoja kaip nekenksmingą), seka baigiama
-    \item atliekama selekcija -- dažniausiai pasirenkami geriausiai įvertinti populiacijos \acs{ae}, tačiau galimos ir kitos selekcijos strategijos
-    \item atliekamas selekcijos atrinktų \acs{ae} kryžminimas (po 2) taip sukuriant naują \acs{ae}, turintį po dalį genų iš abiejų kryžmintų \acs{ae}
-    \item tam tikrai daliai \ac{ae} atliekama dalies genų mutacija
-    \item gaunama nauja populiacijos karta ir seka kartojama nuo \ref{enum:genetic:eval}-o žingsnio
+    \item Sukuriama pradinė populiacija (perturbacijos metodai pradinei populiacijai priklauso nuo \glswhom{framework}).
+    \item Atliekamas tinkamumo (\angl{fitness}) vertinimas.\label{enum:genetic:fitness}
+    \item Atliekama selekcija -- dažniausiai pasirenkami geriausiai įvertinti populiacijos \acs{ae}, tačiau galimos ir kitos selekcijos strategijos.
+    \item Atliekamas selekcijos atrinktų \acs{ae} kryžminimas (po 2) taip sukuriant naują \acs{ae}, turintį po dalį genų iš abiejų kryžmintų \acs{ae}.
+    \item Tam tikrai daliai \ac{ae} atliekama dalies genų mutacija.
+    \item Vertinama, ar sugeneruoti \acs{ae} atitinka kriterijus (vertina detektorius)
+    \item Jei kriterijai nėra tenkinami, seka kartojama nuo \ref{enum:genetic:fitness}-o žingsnio.
 \end{enumerate}
 \cite{yusteOptimizationCodeCaves2022}
 
 \begin{describeFramework}{AIMED}{\cite{castroAIMEDEvolvingMalware2019}}
-\purpose{}
-\surrogate{}
-\mainModel{}
-% \features{}{}
-% \perturbations{}{}
+\purpose{\acs{ae} generavimo greičio padidinimas ir modelių kompleksiškumo sumažinimas, lyginant su \acs{gan} modeliais (\ref{sec:literature:gan})}
+\surrogate{Surogatinis modelis nenaudojamas. Naudojami \enquote{juodos dėžės} detektoriai yra \textbf{3 komerciniai} (\textit{Kaspersky, ESET, Sophos}) ir vienas \acs{ml} modelis -- \acs{gbdt}.}
+\mainModel{Klasikinis \acs{genetic} modelis -- veikimas visiškai atitinką bendrą seką. Tinkamumo (\angl{fitness}) vertinamas remiasi \acs{ae} požymių vektoriaus panašumu į originalios programos požymių vektorių (kuo mažiau panašūs, tuo tinkamumo įvertinimas didesnis).}
+\features{}{\item Baitų lygio požymiai (\ref{sec:literature:features:byte}) -- atskiras $n$-gramų atvejis, kai $n=1$}
+\perturbations{}{
+    \item Baitų lygio perturbacijos\footnote{autoriai rėmėsi perturbacijomis, aprašytomis \cite{andersonLearningEvadeStatic2018}} (\ref{sec:literature:perturbations:byte}).
+}
 \end{describeFramework}
 
-\begin{describeFramework}{RAMEN}{\cite{demetrioAdversarialEXEmplesSurvey2021}}
-\purpose{}
-\surrogate{}
-\mainModel{}
-% \features{}{}
-% \perturbations{}{}
-\end{describeFramework}
+% \begin{describeFramework}{RAMEN}{\cite{demetrioAdversarialEXEmplesSurvey2021}}
+% \purpose{Optimizuoti \acs{ae} generavimą egzistuojančiais modeliais naudojantis \enquote{praktinėmis manipuliacijomis}.}
+% \surrogate{Nenaudojamas.}
+% \mainModel{}
+% % \features{}{}
+% % \perturbations{}{}
+% \end{describeFramework}
 
 \begin{describeFramework}{GAMMA}{\cite{demetrioFunctionalityPreservingBlackBoxOptimization2021}}
-\purpose{}
-\surrogate{}
-\mainModel{}
-% \features{}{}
-% \perturbations{}{}
+\purpose{Efektyvus (neaptikimo šansų didinmas naudojant perturbacijas, paremtas nekenksmingomis programomis) \glswhose{adversarial} kūrimas.}
+\surrogate{Surogatinis modelis nenaudojamas. \acs{gbdt} ir \textit{MalConv} pasirinkti kaip \enquote{juodos dėžės} detektoriai.}
+\mainModel{Pagrindinė modelio idėja yra požymių ištraukimas iš nekenksmingų programų ir jų pridėjimas, naudojant tam pritaikytas perturbacijas, į kenksmingas programas kiekvienos populiacijos generavimo metu. Tinkamumo (\angl{fitness}) ir kriterijų vertinimas atliekamas naudojant detektorių ir pridėtų požymių dydį baitais (norima pridėti kuo mažiau požymių).}
+\features{}{
+    \item \acs{pe} formato programų požymiai (\ref{sec:literature:features:pe}).
+    \item Kodas sekcijose (nestandartinis požymis).
+}
+\perturbations{}{
+    \item Visos baitų lygio perturbacijos (\ref{sec:literature:perturbations:byte}), gebančios pridėti baitus.
+    \item Autoriai pažymi, jog gali būti naudojama ir \acs{dll} / \acs{api} vardų pridėjimo semantinė perturbacija (\ref{sec:literature:perturbations:semantic}).
+}
 \end{describeFramework}

@@ -36,5 +36,6 @@
         "perturbuota",
         "sąlyginai",
         "Stealmal"
-    ]
+    ],
+    "editor.wordWrap": "on"
 }
