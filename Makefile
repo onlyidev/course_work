@@ -27,7 +27,7 @@ check:
 
 .PHONY: check-git
 check-git:
-	chktex $(TEX_NAME) -n2 -n8 -n12
+	chktex $(TEX_NAME) -n2 -n8 -n12 -n44
 
 .PHONY: clean
 clean:

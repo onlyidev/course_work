@@ -1,1 +1,53 @@
 \section{Modelių vertinimas}\label{sec:criteria}
+
+Modelių vertinimui apibrėšime kriterijus, kurie padės objektyviai išrinkti
+realioms \glswhom{adversarial} tinkančius \glsplwhat{framework}. Kriterijus
+laikysime esant dviejų tipų: \textbf{kokybiniai} (\glsshort{framework} atitinka
+kriterijų arba ne) ir \textbf{kiekybiniai} (\glsshort{framework} atitinka
+kriterijų dalinai: 0\% -- visiškai neatitinka, 100\% -- visiškai atitinka). \\
+
+\textbf{Kriterijai} (surikiuoti pagal svarbą mažėjančia tvarka):
+\vspace{-5pt}
+\begin{enumerate}[label=K-\arabic*., ref=K-\arabic*]
+    \item \Glsshort{framework} pritaikytas \enquote{juodos dėžės} atvejams (\textbf{kokybinis}).\label{enum:criteria:blackbox}
+    \item \Glsshort{framework} pritaikytas komerciniams detektoriams (\textbf{kokybinis}).\label{enum:criteria:commercial}
+    \item \Glsshort{framework} užtikrina realistišką atakos efektyvumo įvertinimą -- naudoja \glswhat{surrogateModel} (\textbf{kokybinis}).\label{enum:criteria:surrogate}
+    \item \Glsshort{framework} užtikrina atakos efektyvumą (\textbf{kiekybinis}).\label{enum:criteria:effective}
+\end{enumerate}
+
+\newenvironment{criteriaTable}{
+    \newcommand{\rowLast}[1]{##1}
+    \newcommand{\row}[1]{##1 \\}
+    \newcommand{\tbl}[1]{\gdef\Table{##1}}
+
+    \def\Table{}
+}{
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{|l|c|c|c|S|}
+            \row{
+            \textbf{\Glsshort{framework}}           &
+            \textbf{\ref{enum:criteria:blackbox}}   &
+            \textbf{\ref{enum:criteria:commercial}} &
+            \textbf{\ref{enum:criteria:surrogate}}  &
+                \textbf{\ref{enum:criteria:effective}}
+            } \midrule
+            \Table{}
+        \end{tabular}
+        \caption{\Glsplwhom{framework} vertinimo pagal kriterijus lentelė. \Glspl{framework} surikiuoti pagal įvertinimą mažėjančia tvarka.}
+    \end{table}
+}
+
+\begin{criteriaTable}
+    % \begin{tabular}{cols}
+    \tbl{
+        \row{ \refFramework{MalFox}        & \cmark{} & \cmark{} & \cmark{} & 56,00\%}
+        \row{ \refFramework{MalInfo}       & \cmark{} & \cmark{} & \xmark{} & 59,40\%}
+        \row{ \refFramework{AIMED}         & \cmark{} & \cmark{} & \xmark{} & 47,98\%}
+        \row{ \refFramework{N-gram MalGAN} & \cmark{} & \xmark{} & \cmark{} & 88,58\%}
+        \row{ \refFramework{MalGAN}        & \cmark{} & \xmark{} & \cmark{} & 81,00\%}
+        \row{ \refFramework{GAMMA}         & \cmark{} & \xmark{} & \xmark{} & 53,00\%}
+        \rowLast{ \refFramework{DQEAF}     & \cmark{} & \xmark{} & \xmark{} & 46,56\%}
+    }
+    % \end{tabular}
+\end{criteriaTable}

@@ -38,6 +38,17 @@
 {\Glsplwhom}% link ucfirst cs
 {\GLSplwhom}% link all caps cs
 
+\glsaddkey{plural-what}% key
+{}% default value
+{\glsentryplwhat}% no link cs
+{\Glsentryplwhat}% no link ucfirst cs
+{\glsplwhat}% link cs
+{\Glsplwhat}% link ucfirst cs
+{\GLSplwhat}% link all caps cs
+
+\newcommand{\glsshort}[1]{\glslink{#1}{\glsentryshort{#1}}}
+\newcommand{\Glsshort}[1]{\glslink{#1}{\Glsentryshort{#1}}}
+
 \newglossaryentry{signature}{
     name={Pėdsakas (\angl{Signature})},
     description={Programos struktūros ir požymių santrauka, beveik unikaliai identifikuojanti programą (pvz. \gls{hashfunction})},
@@ -75,6 +86,7 @@
     text={surogatinis modelis},
     first={surogatinio modelio},
     whom={surogatinio modelio},
+    what={surogatinį modelį}
 }
 
 \newglossaryentry{policy}{
@@ -97,6 +109,7 @@
     what=karkasą,
     plural=karkasai,
     plural-whom=karkasų,
+    plural-what=karkasus,
     whom=karkaso
 }
 
