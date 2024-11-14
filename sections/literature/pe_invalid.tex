@@ -1,1 +1,5 @@
 \subsection{Nevalidaus PE formato problema}\label{sec:literature:pe_invalid}
+
+Anderson et.~al., atlikdami eksperimentus su funkcionalumą išlaikančiomis perturbacijomis \acs{pe} formato failams, pastebėjo, jog ne visais atvejais perturbuotos programos veikia teisingai. Dėl \textit{Windows} operacinės sistemos \acs{pe} formato failų interpretavimo ir paleidimo specifikos, programas įmanoma parašyti tokiu būdu, jog pakeitus kodo ar kitų sekcijų turinį nekeičiant originalių mašininio kodo instrukcijų, programa neveiktų. Techniškai, programų rašymas tokiu būdu pažeidžia patį \acs{pe} formato standartą, tačiau šią praktiką neretai naudoja kenkėjiškų programų autoriai \cite{andersonLearningEvadeStatic2018}.
+
+Norint visiškai išvengti nevalidaus \acs{pe} formato problemos tenka taikyti perturbacijas, nekeičiančias originalių programų, o taikančias kitokius obfuskacijos metodus. Iš \ref{sec:literature:perturbations} sekcijoje aptartų perturbacijų, tokias sąlygas atitinka tik 2 kompleksinės perturbacijos (\ref{sec:literature:perturbations:complex}) -- \textit{Stealmal} ir \textit{Hollowmal}.

@@ -1,17 +1,18 @@
 \section{Literatūros apžvalga}\label{sec:literature}
 
-Mokslinėje literatūroje kenkėjiško kodo ir programų obfuskacijai daugiausia dėmesio skiriama \ac{ae} generavimui, dėl paplitusio \acs{ml} modelių naudojimo kenkėjiško kodo ir programų detekcijos srityje \citeplace. Dažniausia atakų platforma -- operacinė sistema \enquote{Windows} ir jos naudojami \acs{pe} formato failai \citeplace.
+Mokslinėje literatūroje kenkėjiško kodo ir programų obfuskacijai daugiausia dėmesio skiriama \ac{ae} generavimui, dėl paplitusio \acs{ml} modelių naudojimo kenkėjiško kodo ir programų detekcijos srityje \cite{andersonLearningEvadeStatic2018}. Dažniausia atakų platforma -- operacinė sistema \enquote{Windows} ir jos naudojami \acs{pe} formato failai (\href{https://www.virustotal.com/gui/stats}{\textit{VirusTotal}}\footnote{https://www.virustotal.com/gui/stats} duomenimis).
 
-Kenkėjiškų programų analizė gali būti išskiriama į \textbf{statinę analizę} ir \textbf{elgesio (\angl{behavior}) analizę}. Statinės analizės detektoriai yra labiau paplitę ir prieinami, kadangi požymių išskyrimas iš tam tikro iš anksto žinomo formato failų ir jų klasifikavimas yra sąlyginai nesudėtinga užduotis. Tuo tarpu elgesio analizės detektoriai dažniausiai neprieinami eiliniams vartotojams, o diegiami korporacijose \citeplace. Jų veikimas pagrįstas nuolatiniu sistemos stebėjimu ir anomalijų detekcija, tad yra kartu ir sudėtingesnė, ir reikalaujanti daugiau resursų, nei statinė analizė, užduotis.
+Kenkėjiškų programų analizė gali būti išskiriama į \textbf{statinę analizę} ir \textbf{elgesio (\angl{behavior}) analizę}. Statinės analizės detektoriai yra labiau paplitę ir prieinami, kadangi požymių išskyrimas iš tam tikro iš anksto žinomo formato failų ir jų klasifikavimas yra sąlyginai nesudėtinga užduotis. Tuo tarpu elgesio analizės detektoriai dažniausiai neprieinami eiliniams vartotojams, o diegiami korporacijose \cite{rosenbergGenericBlackBoxEndEnd2018}. Jų veikimas pagrįstas nuolatiniu sistemos stebėjimu ir anomalijų detekcija, tad yra kartu ir sudėtingesnė, ir reikalaujanti daugiau resursų, nei statinė analizė, užduotis.
 
 Mokslinėje literatūroje nagrinėjant specifinį būdą generuoti \acs{ae}, apibrėžiamas \gls{framework}. \Glswhat{framework} sudaro
 \begin{itemize}
     \item \Glswhom{surrogateModel} tipas ir architektūra
-    \item \acs{ml} modelio tipas ir architektūra
+    \item \acs{ml} modelio (jei naudojamas) tipas ir architektūra
     \item \acs{ml} modelio naudojami požymiai (žr. \ref{sec:literature:features})
     \item \acs{ml} modelio naudojamos perturbacijos (žr. \ref{sec:literature:perturbations})
 \end{itemize}
 
+\input{sections/literature/transfer.tex}
 \input{sections/literature/features.tex}
 \input{sections/literature/perturbations.tex}
 \input{sections/literature/gan.tex}

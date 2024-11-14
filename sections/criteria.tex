@@ -1,6 +1,6 @@
-\section{Modelių vertinimas}\label{sec:criteria}
+\section{Karkasų vertinimas}\label{sec:criteria}
 
-Modelių vertinimui apibrėšime kriterijus, kurie padės objektyviai išrinkti
+\Glsplwhom{framework} vertinimui apibrėšime kriterijus, kurie padės objektyviai išrinkti
 realioms \glswhom{adversarial} tinkančius \glsplwhat{framework}. Kriterijus
 laikysime esant dviejų tipų: \textbf{kokybiniai} (\glsshort{framework} atitinka
 kriterijų arba ne) ir \textbf{kiekybiniai} (\glsshort{framework} atitinka
@@ -34,7 +34,7 @@ kriterijų dalinai: 0\% -- visiškai neatitinka, 100\% -- visiškai atitinka). \
             } \midrule
             \Table{}
         \end{tabular}
-        \caption{\Glsplwhom{framework} vertinimo pagal kriterijus lentelė. \Glspl{framework} surikiuoti pagal įvertinimą mažėjančia tvarka.}
+        \caption{\Glsplwhom{framework} vertinimas pagal kriterijus. \Glspl{framework} surikiuoti pagal įvertinimą mažėjančia tvarka.}
     \end{table}
 }
 
@@ -51,3 +51,5 @@ kriterijų dalinai: 0\% -- visiškai neatitinka, 100\% -- visiškai atitinka). \
     }
     % \end{tabular}
 \end{criteriaTable}
+
+Kriterijų vertinimo lentelėje pastebime, jog dviejų aukščiausiai pagal \ref{enum:criteria:effective} kriterijų įvertintų \glsplwhom{framework} (\refFramework{N-gram MalGAN} ir \refFramework{MalGAN}) įvertinimai žymiai aukštesni, nei vidurkis (nuokrypis per 26,79\% ir 19,21\% atitinkamai), tačiau bendras jų įvertinimas pakankamai žemas (4 ir 5 vietos). Tai lemia \ref{enum:criteria:commercial} kriterijaus įvertinimas. Kadangi vertinimo tikslas yra nustatyti realioms \glswhom{adversarial} tinkančius \glsplwhat{framework}, negalime teigti, jog \glspl{framework}, puikiai konstruojantys \acs{ae} akademiniams modeliams, gebės konstruoti tokios pačios kokybės \acs{ae} komerciniams modeliams. Tai ir parodysime \ref{sec:experiment}-ame skyriuje. 
