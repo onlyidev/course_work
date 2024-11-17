@@ -6,11 +6,8 @@
           \enquote{triukšmo} (\angl{noise}) vektorių, sugeneruoja perturbacijas.
     \item Originali kenkėjiška programa modifikuojama pagal perturbacijas (sukuriamas
           \ac{ae}).
-    \item Diskriminatorius bando klasifikuoti sugeneruotą \ac{ae} (kenkėjiškas /
-          nekenkėjiškas). Diskriminatoriaus klasifikacija lyginama su tikro detektoriaus
-          klasifikacija. Jei ji teisinga -- atnaujinami generatoriaus parametrai pagal
-          generatoriaus nuostolių funkciją. Kitu atveju, atnaujinami diskriminatoriaus
-          parametrai pagal diskriminatoriaus nuostolių funkciją.
+    \item Diskriminatorius klasifikuoja sugeneruotą \ac{ae} (kenkėjiškas /
+          nekenkėjiškas). Pagal klasifikacijos rezultatą skaičiuojamos diskriminatoriaus ir generatoriaus nuostolių funkcijos reikšmės (diskriminatoriaus nuostolių funkcijos reikšmė priklauso nuo tikro detektoriaus klasifikacijos).
     \item Visa seka kartojama nustatytą kiekį kartų.
 \end{enumerate} \cite{huGeneratingAdversarialMalware2017,zhuNgramMalGANEvading2022,zhongMalFoxCamouflagedAdversarial2024}.
 

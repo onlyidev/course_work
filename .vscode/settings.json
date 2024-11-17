@@ -4,10 +4,12 @@
     ],
     "cSpell.language": "en,lt,lt-LT",
     "cSpell.words": [
+        "agreguoja",
         "agreguojanti",
         "aproksimuojantis",
         "daugiadimensiniams",
         "diskriminatoriaus",
+        "diskriminatoriui",
         "diskriminatorius",
         "generatyviniai",
         "Generatyviniais",
@@ -24,6 +26,7 @@
         "konvoliucinis",
         "nekenkėjišką",
         "nekenkėjiškas",
+        "nekenkėjiškų",
         "neuroniniai",
         "neuroniniais",
         "neuroninis",
@@ -31,6 +34,7 @@
         "Nevalidaus",
         "obfuskacijai",
         "obfuskacijos",
+        "obfuskuotas",
         "obfuskuotus",
         "Obfusmal",
         "perkeliamumas",
@@ -38,8 +42,11 @@
         "perturbuojama",
         "perturbuota",
         "perturbuotos",
+        "perturbuotų",
         "sąlyginai",
-        "Stealmal"
+        "skirstinį",
+        "Stealmal",
+        "validacijos"
     ],
     "editor.wordWrap": "on"
 }
