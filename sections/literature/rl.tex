@@ -7,7 +7,7 @@ būsenų erdvė $S$ yra požymių vektorių erdvė. Agentas -- tai algoritmas ar
 neuroninis tinklas, kurio tikslas yra surasti optimalią strategiją
 \gls{policy}. Šiuo atveju strategijos veiksmų erdvė $A$ susideda iš
 perturbacijų (žr. \ref{sec:literature:perturbations}) \cite{fangEvadingMalwareEngines2019}. Bendras
-\ac{rl} modelių mokymosi etapas yra tokia seka:
+\ac{rl} modelių mokymosi etapas yra tokia seka \cite{fangEvadingMalwareEngines2019, zhongReinforcementLearningBased2022}:
 \begin{enumerate}
     \item Agentas, naudodamas dabartinę aplinkos būseną ir praeito veiksmo atlygį
           (\angl{reward}), parenka sekantį veiksmą iš galimų veiksmų aibės ir taiko
@@ -19,7 +19,6 @@ perturbacijų (žr. \ref{sec:literature:perturbations}) \cite{fangEvadingMalware
     \item Seka kartojama tol, kol agentas nelaiko strategijos optimalia arba nustatytą
           kiekį kartų.
 \end{enumerate}
-\cite{fangEvadingMalwareEngines2019, zhongReinforcementLearningBased2022}
 
 \begin{describeFramework}{DQEAF}{\cite{fangEvadingMalwareEngines2019}}
     \introLastPar{

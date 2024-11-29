@@ -1,6 +1,6 @@
 \subsection{GAN tipo modelių \glspl{framework}}\label{sec:literature:gan}
 
-\acs{gan} modelių karkasai paremti Generatyviniais Priešiškais Tinklais (\aclp{gan}), kurių veikimo principas yra du neuroniniai tinklai (generatorius ir diskriminatorius), žaidžiantys \gls{zeroSumGame} \cite{chenInfoGANInterpretableRepresentation2016a}. Kenkėjiško kodo obfuskacijos kontekste ir ypač \enquote{juodos dėžės} atvejais, diskriminatorius atlieka \gls{surrogateModel} vaidmenį. Bendras \ac{gan} modelių mokymosi etapas yra tokia seka:
+\acs{gan} modelių karkasai paremti Generatyviniais Priešiškais Tinklais (\aclp{gan}), kurių veikimo principas yra du neuroniniai tinklai (generatorius ir diskriminatorius), žaidžiantys \gls{zeroSumGame} \cite{chenInfoGANInterpretableRepresentation2016a}. Kenkėjiško kodo obfuskacijos kontekste ir ypač \enquote{juodos dėžės} atvejais, diskriminatorius atlieka \gls{surrogateModel} vaidmenį. Bendras \ac{gan} modelių mokymosi etapas yra tokia seka \cite{huGeneratingAdversarialMalware2017,zhuNgramMalGANEvading2022,zhongMalFoxCamouflagedAdversarial2024}:
 \begin{enumerate}
     \item Generatorius, naudodamas požymių vektorių ir tokios pačios dimensijos
           \enquote{triukšmo} (\angl{noise}) vektorių, sugeneruoja perturbacijas.
@@ -9,11 +9,11 @@
     \item Diskriminatorius klasifikuoja sugeneruotą \ac{ae} (kenkėjiškas /
           nekenkėjiškas). Pagal klasifikacijos rezultatą skaičiuojamos diskriminatoriaus ir generatoriaus nuostolių funkcijos reikšmės (diskriminatoriaus nuostolių funkcijos reikšmė priklauso nuo tikro detektoriaus klasifikacijos).
     \item Visa seka kartojama nustatytą kiekį kartų.
-\end{enumerate} \cite{huGeneratingAdversarialMalware2017,zhuNgramMalGANEvading2022,zhongMalFoxCamouflagedAdversarial2024}.
+\end{enumerate}
 
 \begin{describeFramework}{MalGAN}{\cite{huGeneratingAdversarialMalware2017}}
     \introLastPar{
-        Tai vienas iš pirmųjų ir populiariausių \acs{gan} tipo modelių \glsplwhom{framework}.
+        Tai vienas iš pirmųjų ir populiariausių \acs{gan} tipo modelių \glsplwhom{framework}. \enquote{Juodos dėžės} detektoriai čia apibrėžiami kaip populiarūs \acs{ml} klasifikatoriai, tokie, kaip MLP (\angl{Multilayer Perceptron}), RF (\angl{Random Forest}), DT (\angl{Decision Tree}), \acs{svm} (\angl{Support Vector Machine}).
     }
     \purpose{
         Efektyviai išvengti \acs{ae} aptikimo, kai \acs{ml} kenkėjiškų programų detektoriaus implementacija nežinoma (\enquote{juodos dėžės} atvejis)

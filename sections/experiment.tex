@@ -9,14 +9,8 @@ detektorius.
     \textit{Github} platformoje
     paskelbtą\footnote{https://github.com/ZaydH/MalwareGAN}} \textit{MalGAN}
 karkaso \acs{ml} modelio implementaciją.
-% Generatoriaus nuostolių funkciją
-% modifikuosime taip:
 
-% \begin{equation}
-%     L_G = \mathbb{E}_{m \in S_{Malware}, z\sim p_{\mathcal{N}^*(0,1)}}\log{D(G(m,z))}
-% \end{equation}
-
-% čia $z$ -- normalizuotas \enquote{triukšmo} pagal Gauso skirstinį ($\mathcal{N}^*(0,1)$) vektorius (Hu et~al. naudoja tolygų skirstinį).
+\input{sections/equations.tex}
 
 \subsubsection{\acs{gan} mokymosi duomenys} Mokymuisi naudosime \textit{EMBER}
 \cite{andersonEMBEROpenDataset2018a} duomenų rinkinį. Treniravimo aibė susideda
@@ -26,16 +20,27 @@ nekenkėjiškų programų požymių. Mokymosi etapui taip pat taikysime trenirav
 validacijos skaidinį santykiu $4:1$.
 
 \subsubsection{\Glswhom{framework} parametrai}
-\begin{itemize}
-    \item Dvejetainio požymių vektoriaus $M$ dimensija $d_M = 10000$
-    \item \enquote{Triukšmo} vektoriaus $Z$ dimensija $d_Z=100$
-    \item Neuronų skaičius generatoriaus \enquote{paslėptuose} sluoksniuose:
-          $100,256,512,1024$
-    \item Neuronų skaičius diskriminatoriaus \enquote{paslėptuose} sluoksniuose:
-          $256,256$
-    \item Diskriminatoriaus mokymosi greitis $\alpha_D = 4\cdot 10^{-4}$
-    \item Generatoriaus mokymosi greitis $\alpha_G = 10^{-6}$
-\end{itemize}
+
+Tyrimo metu atlikti 2 eksperimentai (\textbf{E-1} ir \textbf{E-2}), kuriems
+parinkti \ref{tab:experiment:params}-oje lentelėje aprašyti parametrai.
+\textbf{E-1} atitinka \textit{MalGAN} straipsnyje
+\cite{huGeneratingAdversarialMalware2017} aprašytą eksperimentą, \textbf{E-2}
+-- eksperimentas su autoriaus parinktais parametrais siekiant padidinti atakų
+efektyvumą.
+
+\begin{table}[h]
+    \begin{tabular}{|l|l|l|}
+        \textbf{Parametras}                                                   & \textbf{E-1} & \textbf{E-2}       \\
+        \midrule
+        Dvejetainio požymių vektoriaus $M$ dimensija                          & 160          & $10000$            \\
+        \enquote{Triukšmo} vektoriaus $Z$ dimensija                           & 10           & $100$              \\
+        Neuronų skaičius generatoriaus \enquote{paslėptuose} sluoksniuose     & 256          & $100,256,512,1024$ \\
+        Neuronų skaičius diskriminatoriaus \enquote{paslėptuose} sluoksniuose & 256          & $256,256$          \\
+        Diskriminatoriaus mokymosi greitis                                    & $10^{-3}$    & $4\cdot 10^{-4}$   \\
+        Generatoriaus mokymosi greitis                                        & $10^{-3}$    & $10^{-6}$          \\
+    \end{tabular}
+    \caption{Eksperimentuose naudoti \acs{ml} modelio parametrai}\label{tab:experiment:params}
+\end{table}
 
 \subsubsection{Realių kenkėjiškų programų rinkinys}\label{sec:experiment:virusshare}
 Atakoms naudosime realias kenkėjiškas \acs{pe} formato programas iš
@@ -70,12 +75,23 @@ Specifinis \refFramework{MalGAN} mokymosi etapas yra tokia seka:
 \begin{figure}[h]
     \begin{small}
         \begin{center}
-            \includegraphics[width=0.95\textwidth]{img/learning.png}
+            \begin{subfigure}[t]{0.5\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/learning_paper.png}
+                \caption{\textbf{E-1}}\label{fig:experiment:learning:paper}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/learning.png}
+                \caption{\textbf{E-2}}\label{fig:experiment:learning}
+            \end{subfigure}
         \end{center}
-        \caption{\textit{MalGAN} generatoriaus ir diskriminatoriaus nuostolių funkcijų reikšmės mokymosi etape}\label{fig:experiment:learning}
     \end{small}
+    \caption{\textit{MalGAN} generatoriaus ir diskriminatoriaus nuostolių funkcijų reikšmės mokymosi etape}\label{fig:experiment:leaning:combined}
 \end{figure}
 
+\clearpage
 \subsection{Varžymosi principais pagrįstos atakos prieš komercinius detektorius}
 
 Naudodami mokymosi etape ištreniruotą \acs{ml} modelį ir
@@ -85,28 +101,38 @@ ir palyginsime, kiek komercinių detektorių aptinka originalias programas
 
 Atakų efektyvumą $\mu$ skaičiuosime remiantis Zhong et~al. pasiūlyta formule
 $\mu' = \frac{N_{orig} - N_{adv}}{N_{orig}}$
-\cite{zhongMalFoxCamouflagedAdversarial2024}, laikydami, jog atakos efektyvumas
-neneigiamas $\mu = \max{(\mu', 0)}$.
+\cite{zhongMalFoxCamouflagedAdversarial2024}. Eksperimentuose galimi atvejai, kai originalią programą aptinka mažesnis detektorių kiekis, nei obfuskuotą ($N_{orig} < N_{adv}$). Tokiais atvejais $\mu' < 0$. Kadangi neigiamas atakos efektyvumas neturi prasmės, laikome, jog atvejais, kai $\mu' < 0$ ataka nėra efektyvi (t.~y. jos efektyvumas lygus $0$) $\implies$ $\mu = \max{(\mu', 0)}$. 
+
+Atakų efektyvumų pasiskirstymas pavaizduotas \ref{fig:experiment:mu_dist}-ame pav., tarpiniai rezultatai ($N_{orig}$ ir $N_{adv}$), naudojami pasiskirstymų skaičiavimui pateikiami \ref{fig:experiment:det_dist}-ame pav. (\ref{app:experiment}-ame priede).
 
 \begin{figure}[h]
     \begin{small}
         \begin{center}
-            \includegraphics[width=0.6\textwidth]{img/det_distributions.png}
+            \begin{subfigure}[t]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/mu_distribution_paper.png}
+                \caption{\textbf{E-1}}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[t]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/mu_distribution.png}
+                \caption{\textbf{E-2}}
+            \end{subfigure}
         \end{center}
-        \caption{Originalių ($N_{orig}$) ir perturbuotų ($N_{adv}$) kenkėjiškų programų detekcijų pasiskirstymas}\label{fig:experiment:det_dist}
+        \caption{\Glswhose{adversarial} efektyvumo prieš komercinius detektorius pasiskirstymas}\label{fig:experiment:mu_dist}
     \end{small}
 \end{figure}
 
-\begin{figure}[h]
-    \begin{small}
-        \begin{center}
-            \includegraphics[width=0.6\textwidth]{img/mu_distribution.png}
-        \end{center}
-        \caption{\Glswhose{adversarial} efektyvumo pasiskirstymas}\label{fig:experiment:mu_dist}
-    \end{small}
-\end{figure}
+Tyrimo apibendrinimui \ref{tab:experiment:stats}-oje lentelėje pateikiamos abiejų eksperimentų statistikos, apskaičiuotos iš \ref{fig:experiment:mu_dist}-ame pav. vaizduojamų duomenų įtraukiant ir neefektyvias atakas (kai $\mu = 0$).
 
-\begin{tabular}{ll}
-    \textbf{Efektyvumo vidurkis}:    & $26,85\%$ \\
-    \textbf{Standartinis nuokrypis}: & $18,97\%$
-\end{tabular}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l|l|l}
+                                        & \textbf{E-1} & \textbf{E-2} \\
+        \midrule
+        \textbf{Efektyvumo vidurkis}    & $28,89\%$    & $26,85\%$    \\
+        \textbf{Standartinis nuokrypis} & $26,31\%$    & $18,97\%$    \\
+    \end{tabular}
+    \caption{Eksperimentų statistikos}\label{tab:experiment:stats}
+\end{table}

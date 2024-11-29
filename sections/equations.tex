@@ -1,0 +1,33 @@
+\begin{equation}
+    L_{D}= -\mathbb{E}_{x\in BB_{Benign}}\log\left(1-D_{\theta_{d}}(x)\right)\\-\mathbb{E}_{x\in BB_{Malware}}\log D_{\theta_{d}}\left(x\right).\label{eq:LD}
+\end{equation}
+
+\begin{equation}
+    L_G= \mathbb{E}_{m \in S_{Malware},z \sim p_{\mathrm{uniform} \left[0,1\right) }} \log D_{\theta_d} \left(G_{\theta_g} \left(m,z\right) \right)\label{eq:LG}
+\end{equation}
+
+\ref{eq:LD}-oje ir \ref{eq:LG}-oje lygtyse atitinkamai pateikiamos \textit{MalGAN} diskriminatoriaus ir generatoriaus nuostolių funkcijos. Šiose lygtyse naudojamų simbolių prasmės paaiškinimas pateikiamas \ref{tab:eq_explain}-oje lentelėje.
+
+\begin{table}[h]
+    \begin{small}
+        \begin{center}
+            \begin{tabular}[c]{l|p{0.75\textwidth}}
+                Simbolis       & Prasmė                                                                                                                                           \\
+                \midrule
+                $BB_{Benign}$  & Požymių vektorių, kuriuos \enquote{juodos dėžės} detektorius klasifikuoja kaip \textbf{nekenksmingus}, aibė                                      \\
+
+                $BB_{Malware}$ & Požymių vektorių, kuriuos \enquote{juodos dėžės} detektorius klasifikuoja kaip \textbf{kenksmingus}, aibė                                        \\
+
+                $S_{Malware}$  & Tikrų kenkėjiškų programų požymių vektorių aibė                                                                                                  \\
+
+                $D_{\theta_d}$ & Diskriminatorius su $\theta_d$ svoriais ($D_{\theta_d}: \set{0,1}^{n_m} \rightarrow [0,1], \; n_m \in \mathbb{N}$)                               \\
+
+                $G_{\theta_g}$ & Generatorius su $\theta_g$ svoriais ($G_{\theta_g}: \set{0,1}^{n_m} \times {[0,1]}^{n_z} \rightarrow \set{0,1}^{n_m}, \; n_m, n_z \in \mathbb{N}$) \\
+
+                $z$            & Triukšmo vektorius                                                                                                                               \\
+
+            \end{tabular}
+        \end{center}
+        \caption{\textit{MalGAN} nuostolių funkcijų formulėse naudojamų simbolių paaiškinimas}\label{tab:eq_explain}
+    \end{small}
+\end{table}
