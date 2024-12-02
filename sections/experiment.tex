@@ -68,7 +68,7 @@ Specifinis \refFramework{MalGAN} mokymosi etapas yra tokia seka:
               \item Generatorius ir diskriminatorius mokomi kartu, kadangi diskriminatorius turi
                     naudoti generatoriaus sugeneruotus \acs{ae}, o generatoriaus nuostolių funkcija
                     priklauso nuo diskriminatoriaus išvesties. Šis žingsnis pavaizduotas
-                    \ref{fig:experiment:learning}-ame pav.
+                    \ref{fig:experiment:learning:combined}-ame pav.
           \end{itemize}
 \end{enumerate}
 
@@ -88,7 +88,7 @@ Specifinis \refFramework{MalGAN} mokymosi etapas yra tokia seka:
             \end{subfigure}
         \end{center}
     \end{small}
-    \caption{\textit{MalGAN} generatoriaus ir diskriminatoriaus nuostolių funkcijų reikšmės mokymosi etape}\label{fig:experiment:leaning:combined}
+    \caption{\textit{MalGAN} generatoriaus ir diskriminatoriaus nuostolių funkcijų reikšmės mokymosi etape}\label{fig:experiment:learning:combined}
 \end{figure}
 
 \clearpage
@@ -101,9 +101,16 @@ ir palyginsime, kiek komercinių detektorių aptinka originalias programas
 
 Atakų efektyvumą $\mu$ skaičiuosime remiantis Zhong et~al. pasiūlyta formule
 $\mu' = \frac{N_{orig} - N_{adv}}{N_{orig}}$
-\cite{zhongMalFoxCamouflagedAdversarial2024}. Eksperimentuose galimi atvejai, kai originalią programą aptinka mažesnis detektorių kiekis, nei obfuskuotą ($N_{orig} < N_{adv}$). Tokiais atvejais $\mu' < 0$. Kadangi neigiamas atakos efektyvumas neturi prasmės, laikome, jog atvejais, kai $\mu' < 0$ ataka nėra efektyvi (t.~y. jos efektyvumas lygus $0$) $\implies$ $\mu = \max{(\mu', 0)}$. 
+\cite{zhongMalFoxCamouflagedAdversarial2024}. Eksperimentuose galimi atvejai,
+kai originalią programą aptinka mažesnis detektorių kiekis, nei obfuskuotą
+($N_{orig} < N_{adv}$). Tokiais atvejais $\mu' < 0$. Kadangi neigiamas atakos
+efektyvumas neturi prasmės, laikome, jog atvejais, kai $\mu' < 0$ ataka nėra
+efektyvi (t.~y. jos efektyvumas lygus $0$) $\implies$ $\mu = \max{(\mu', 0)}$.
 
-Atakų efektyvumų pasiskirstymas pavaizduotas \ref{fig:experiment:mu_dist}-ame pav., tarpiniai rezultatai ($N_{orig}$ ir $N_{adv}$), naudojami pasiskirstymų skaičiavimui pateikiami \ref{fig:experiment:det_dist}-ame pav. (\ref{app:experiment}-ame priede).
+Atakų efektyvumų pasiskirstymas pavaizduotas \ref{fig:experiment:mu_dist}-ame
+pav., tarpiniai rezultatai ($N_{orig}$ ir $N_{adv}$), naudojami pasiskirstymų
+skaičiavimui pateikiami \ref{fig:experiment:det_dist}-ame pav.
+(\ref{app:experiment}-ame priede).
 
 \begin{figure}[h]
     \begin{small}
@@ -124,15 +131,18 @@ Atakų efektyvumų pasiskirstymas pavaizduotas \ref{fig:experiment:mu_dist}-ame 
     \end{small}
 \end{figure}
 
-Tyrimo apibendrinimui \ref{tab:experiment:stats}-oje lentelėje pateikiamos abiejų eksperimentų statistikos, apskaičiuotos iš \ref{fig:experiment:mu_dist}-ame pav. vaizduojamų duomenų įtraukiant ir neefektyvias atakas (kai $\mu = 0$).
+Tyrimo apibendrinimui \ref{tab:experiment:stats}-oje lentelėje pateikiamos
+abiejų eksperimentų statistikos, apskaičiuotos iš
+\ref{fig:experiment:mu_dist}-ame pav. vaizduojamų duomenų įtraukiant ir
+neefektyvias atakas (kai $\mu = 0$).
 
 \begin{table}[h]
     \centering
     \begin{tabular}{l|l|l}
-                                        & \textbf{E-1} & \textbf{E-2} \\
+                                                   & \textbf{E-1} & \textbf{E-2} \\
         \midrule
-        \textbf{Efektyvumo vidurkis}    & $28,89\%$    & $26,85\%$    \\
-        \textbf{Standartinis nuokrypis} & $26,31\%$    & $18,97\%$    \\
+        \textbf{Efektyvumo vidurkis ($\bar{\mu}$)} & $28,89\%$    & $26,85\%$    \\
+        \textbf{Standartinis nuokrypis ($\sigma$)} & $26,31\%$    & $18,97\%$    \\
     \end{tabular}
     \caption{Eksperimentų statistikos}\label{tab:experiment:stats}
 \end{table}
