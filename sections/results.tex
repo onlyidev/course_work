@@ -1,7 +1,15 @@
 \sectionnonum{Rezultatai ir išvados}
 
-Šiame darbe išanalizuoti 8 trims kategorijoms (\acs{gan}, \acs{rl}, \acs{genetic}) priklausantys \glswhose{adversarial} \glspl{framework}. Jiems apibrėžti vertinimo kriterijai, išskiriantys geriausiai realioms sąlygoms pritaikytus \glsplwhat{framework}. Taip pat atliktas tyrimas, kurio metu \ref{enum:criteria:commercial} kriterijaus neįgyvendinantis \gls{framework} \refFramework{MalGAN} naudojamas \acs{ae} generavimui prieš komercinius detektorius ir renkami \ref{enum:criteria:effective} kriterijų atitinkantys duomenys (t.~y. nustatomas \glswhom{framework} \ref{enum:criteria:effective} kriterijus tokiomis sąlygomis, kai tenkinamas \ref{enum:criteria:commercial}).
+\subsection*{Rezultatai}
+\begin{enumerate}
+    \item Išanalizuoti 8 trims kategorijoms (\acs{gan}, \acs{rl}, \acs{genetic}) priklausantys \glswhose{adversarial} \glspl{framework}. 
+    \item Jiems apibrėžti vertinimo kriterijai, išskiriantys geriausiai realioms sąlygoms pritaikytus \glsplwhat{framework}.
+    \item Atliktas tyrimas, kurio metu \ref{enum:criteria:commercial} kriterijaus neįgyvendinantis \gls{framework} \refFramework{MalGAN} naudojamas \acs{ae} generavimui prieš komercinius detektorius ir renkami \ref{enum:criteria:effective} kriterijų atitinkantys duomenys (t.~y. nustatomas \glswhom{framework} \ref{enum:criteria:effective} kriterijus tokiomis sąlygomis, kai tenkinamas \ref{enum:criteria:commercial}).
+\end{enumerate}
 
-Tyrimo metu atlikti 2 eksperimentai parodo, jog net ir padidinus \textit{MalGAN} \acs{ml} modelio galimybes (suteikus daugiau kompiuterijos resursų), atakų efektyvumas prieš komercinius detektorius nepadidėja ($\bar{\mu}_{E \text{-} 2} < \bar{\mu}_{E \text{-} 1}$), tačiau yra stabilesnis ($\sigma_{E \text{-} 2} < \sigma_{E \text{-} 1}$). Abiem atvejais tyrimo metu gautas \ref{enum:criteria:effective} įvertis ($\bar{\mu}$) yra žymiai mažesnis už kriterijų vertinimo metu naudojamą $81,00\%$ \textit{MalGAN} \glswhom{framework} įvertinimą (kai \ref{enum:criteria:commercial} netenkinamas). Tai paaiškina \ref{tab:criteria}-oje lentelėje matomas \ref{enum:criteria:effective} kriterijaus anomalijas ir parodo, jog kriterijai ir \glsplwhom{framework} vertinimas yra adekvatūs.
-
-Laikant, jog parinkti kriterijai ir jų vertinimas yra patikimi, geriausiai \enquote{juodos dėžės} atvejams pritaikytas \gls{framework} yra \refFramework{MalFox}, tenkinantis visus 3 kokybinius kriterijus ir siekiantis $56,00\%$ kiekybinį įvertinimą (atakų efektyvumą).
+\subsection*{Išvados}
+\begin{enumerate}
+    \item Tyrimo metu atlikti 2 eksperimentai parodo, jog net ir padidinus \textit{MalGAN} \acs{ml} modelio galimybes (suteikus daugiau kompiuterijos resursų), atakų efektyvumas prieš komercinius detektorius nepadidėja ($\bar{\mu}_{E \text{-} 2} < \bar{\mu}_{E \text{-} 1}$), tačiau yra stabilesnis ($\sigma_{E \text{-} 2} < \sigma_{E \text{-} 1}$).
+    \item Abiem atvejais tyrimo metu gautas \ref{enum:criteria:effective} įvertis ($\bar{\mu}$) yra žymiai mažesnis už kriterijų vertinimo metu naudojamą $81,00\%$ \textit{MalGAN} \glswhom{framework} įvertinimą (kai \ref{enum:criteria:commercial} netenkinamas). Tai paaiškina \ref{tab:criteria}-oje lentelėje matomas \ref{enum:criteria:effective} kriterijaus anomalijas ir parodo, jog kriterijai ir \glsplwhom{framework} vertinimas yra adekvatūs.
+    \item Laikant, jog parinkti kriterijai ir jų vertinimas yra patikimi, geriausiai iš analizuotų \glsplwhom{framework} \enquote{juodos dėžės} atvejams pritaikytas \gls{framework} yra \refFramework{MalFox}, tenkinantis visus 3 kokybinius kriterijus ir siekiantis $56,00\%$ kiekybinį įvertinimą (atakų efektyvumą).
+\end{enumerate}
