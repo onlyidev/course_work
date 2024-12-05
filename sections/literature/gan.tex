@@ -16,7 +16,7 @@
         Tai vienas iš pirmųjų ir populiariausių \acs{gan} tipo modelių \glsplwhom{framework}. \enquote{Juodos dėžės} detektoriai čia apibrėžiami kaip populiarūs \acs{ml} klasifikatoriai, tokie, kaip MLP (\angl{Multilayer Perceptron}), RF (\angl{Random Forest}), DT (\angl{Decision Tree}), \acs{svm} (\angl{Support Vector Machine}).
     }
     \purpose{
-        Efektyviai išvengti \acs{ae} aptikimo, kai \acs{ml} kenkėjiškų programų detektoriaus implementacija nežinoma (\enquote{juodos dėžės} atvejis)
+        Efektyviai išvengti \acs{ae} aptikimo, kai \acs{ml} kenkėjiškų programų detektoriaus įgyvendinimas nežinomas (\enquote{juodos dėžės} atvejis)
     }
     \surrogate{
         Daugiasluoksnis tiesioginio sklidimo neuroninis tinklas -- klasifikatorius. Įvestis -- programos požymių vektorius. Išvestis -- klasifikacija į kenksmingą arba nekenksmingą. Šis tinklas taip pat naudojamas kaip diskriminatorius \acs{gan} architektūroje.
@@ -60,8 +60,8 @@
         \textit{\Name} taip pat remiasi \refFramework{MalGAN}, tačiau siekia kurti \acs{ae} realiomis sąlygomis, dėl to atlieka esminius pakeitimus. 
     }
     \purpose{Generuoti \acs{ae}, kurių neaptiktų komerciniai detektoriai (prieš tai aptarti \glspl{framework} eksperimentams kaip nepriklausomą detektorių naudojo tokius \acs{ml} modelius, kaip \acs{svm}, \acs{knn}, \acs{gbdt} ir kt., bet ne komercinius detektorius). Šio \glswhom{framework} detektorius yra \textit{VirusTotal} (viešai prieinama paslauga, agreguojanti virš 70 komercinių kenkėjiškų programų detektorių).}
-    \surrogate{Surogatinis modelis, kaip ir kituose \acs{gan} tipo modelių karkasuose, naudojamas kaip diskriminatorius. Įvestis -- perturbuota programa. Išvestis -- klasifikacija į kenksmingą arba nekenksmingą. Implementacija -- konvoliucinis neuroninis tinklas (\acs{cnn}).}
-    \mainModel{Standartinis \acs{gan} generatorius, požymių vektorių sujungiantis su \enquote{triukšmo} vektoriumi. Implementacija -- konvoliucinis neuroninis tinklas (\acs{cnn}).}
+    \surrogate{Surogatinis modelis, kaip ir kituose \acs{gan} tipo modelių karkasuose, naudojamas kaip diskriminatorius. Įvestis -- perturbuota programa. Išvestis -- klasifikacija į kenksmingą arba nekenksmingą. Įgyvendinimas -- konvoliucinis neuroninis tinklas (\acs{cnn}).}
+    \mainModel{Standartinis \acs{gan} generatorius, požymių vektorių sujungiantis su \enquote{triukšmo} vektoriumi. Įgyvendinimas -- konvoliucinis neuroninis tinklas (\acs{cnn}).}
     \features{}{
         \item PE formato programų požymiai (\ref{sec:literature:features:pe}) -- \acs{dll}
         vardai. } \perturbations{}{

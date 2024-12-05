@@ -5,18 +5,19 @@ Naudodami \refFramework{MalGAN} \glswhat{framework} paruošime
 \glswhat{adversarial} ir apskaičiuosime jų efektyvumą prieš komercinius
 detektorius.
 
-\subsubsection{\acs{gan} implementacija} Naudosime \href{https://github.com/ZaydH/MalwareGAN}{viešai
-    \textit{Github} platformoje
-    paskelbtą\footnote{https://github.com/ZaydH/MalwareGAN}} \textit{MalGAN}
-karkaso \acs{ml} modelio implementaciją.
+\subsubsection{\acs{gan} įgyvendinimas}
+
+Naudosime \href{https://github.com/ZaydH/MalwareGAN}{viešai \textit{Github}
+    platformoje paskelbtą\footnote{https://github.com/ZaydH/MalwareGAN}}
+\textit{MalGAN} karkaso \acs{ml} modelio įgyvendinimą.
 
 \input{sections/equations.tex}
 
 \subsubsection{\acs{gan} mokymosi duomenys} Mokymuisi naudosime \textit{EMBER}
-\cite{andersonEMBEROpenDataset2018a} duomenų rinkinį. Treniravimo aibė susideda
-iš $2000$ programų požymių (\textit{API} vardų iš \textit{ImportTable} \acs{pe}
+\cite{andersonEMBEROpenDataset2018a} duomenų rinkinį. Mokymosi aibė susideda iš
+$2000$ programų požymių (\textit{API} vardų iš \textit{ImportTable} \acs{pe}
 formato failo sekcijos). Aibė subalansuota -- joje yra po $1000$ kenkėjiškų ir
-nekenkėjiškų programų požymių. Mokymosi etapui taip pat taikysime treniravimo /
+nekenkėjiškų programų požymių. Mokymosi etapui taip pat taikysime mokymosi /
 validacijos skaidinį santykiu $4:1$.
 
 \subsubsection{\Glswhom{framework} parametrai}
@@ -30,14 +31,14 @@ efektyvumą.
 
 \begin{table}[h]
     \begin{tabular}{|l|l|l|}
-        \textbf{Parametras}                                                   & \textbf{E-1} & \textbf{E-2}       \\
+        \textbf{Parametras}                                                   & \textbf{E-1} & \textbf{E-2}          \\
         \midrule
-        Dvejetainio požymių vektoriaus $M$ dimensija                          & 160          & $10000$            \\
-        \enquote{Triukšmo} vektoriaus $Z$ dimensija                           & 10           & $100$              \\
+        Dvejetainio požymių vektoriaus $M$ dimensija                          & 160          & $10000$               \\
+        \enquote{Triukšmo} vektoriaus $Z$ dimensija                           & 10           & $100$                 \\
         Neuronų skaičius generatoriaus \enquote{paslėptuose} sluoksniuose     & 256          & $100, 256, 512, 1024$ \\
-        Neuronų skaičius diskriminatoriaus \enquote{paslėptuose} sluoksniuose & 256          & $256, 256$          \\
-        Diskriminatoriaus mokymosi greitis                                    & $10^{-3}$    & $4\cdot 10^{-4}$   \\
-        Generatoriaus mokymosi greitis                                        & $10^{-3}$    & $10^{-6}$          \\
+        Neuronų skaičius diskriminatoriaus \enquote{paslėptuose} sluoksniuose & 256          & $256, 256$            \\
+        Diskriminatoriaus mokymosi greitis                                    & $10^{-3}$    & $4\cdot 10^{-4}$      \\
+        Generatoriaus mokymosi greitis                                        & $10^{-3}$    & $10^{-6}$             \\
     \end{tabular}
     \caption{Eksperimentuose naudoti \acs{ml} modelio parametrai}\label{tab:experiment:params}
 \end{table}
@@ -94,7 +95,7 @@ Specifinis \refFramework{MalGAN} mokymosi etapas yra tokia seka:
 \clearpage
 \subsection{Varžymosi principais pagrįstos atakos prieš komercinius detektorius}
 
-Naudodami mokymosi etape ištreniruotą \acs{ml} modelį ir
+Naudodami mokymosi etape išmokytą \acs{ml} modelį ir
 \ref{sec:experiment:virusshare} aptartą duomenų rinkinį, sugeneruosime \acs{ae}
 ir palyginsime, kiek komercinių detektorių aptinka originalias programas
 ($N_{orig}$) ir kiek obfuskuotas pagal \textit{MalGAN} karkasą ($N_{adv}$).
@@ -141,8 +142,8 @@ neefektyvias atakas (kai $\mu = 0$).
     \begin{tabular}{l|l|l}
                                                    & \textbf{E-1} & \textbf{E-2} \\
         \midrule
-        \textbf{Efektyvumo vidurkis ($\bar{\mu}$)} & $28,89\%$    & $26,85\%$    \\
-        \textbf{Standartinis nuokrypis ($\sigma$)} & $26,31\%$    & $18,97\%$    \\
+        \textbf{Efektyvumo vidurkis ($\bar{\mu}$)} & $28,89 \%$   & $26,85 \%$   \\
+        \textbf{Standartinis nuokrypis ($\sigma$)} & $26,31 \%$   & $18,97 \%$   \\
     \end{tabular}
     \caption{Eksperimentų statistikos}\label{tab:experiment:stats}
 \end{table}

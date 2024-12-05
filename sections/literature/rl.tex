@@ -24,9 +24,9 @@ perturbacijų (žr. \ref{sec:literature:perturbations}) \cite{fangEvadingMalware
     \introLastPar{
         Šis \glsshort{framework} taiko gilųjį skatinamąjį mokymąsi, kai agentas implementuojamas kaip gilusis neuroninis tinklas.
     }
-    \purpose{Parodyti, jog \acs{ml} kenkėjiškų programų detektoriai, ypač modeliai, treniruoti prižiūrimu mokymusi, yra pažeidžiami \glswhom{adversarial}}
+    \purpose{Parodyti, jog \acs{ml} kenkėjiškų programų detektoriai, ypač modeliai, išmokyti prižiūrimu mokymusi, yra pažeidžiami \glswhom{adversarial}}
     \surrogate{\acs{rl} karkasuose nenaudojami surogatiniai modeliai. Kaip \enquote{juodos dėžės} detektorius pasirinktas \acs{gbdt} modelis.}
-    \mainModel{Agentas implementuotas kaip gilusis $Q$-tinklas (\acs{cnn} praplėtimas, kai tinklas naudojamas kaip \glswhom{qfunction} aproksimacija). Taip pat taikomas prioritetizuotas patirčių pakartojimo metodas (\angl{prioritized experience replay}), kuomet agentas treniruojamas tik su aukštą atlygį gavusiais perėjimais ($S \times A$).}
+    \mainModel{Agentas implementuotas kaip gilusis $Q$-tinklas (\acs{cnn} praplėtimas, kai tinklas naudojamas kaip \glswhom{qfunction} aproksimacija). Taip pat taikomas prioritetizuotas patirčių pakartojimo metodas (\angl{prioritized experience replay}), kuomet agentas mokomas tik su aukštą atlygį gavusiais perėjimais ($S \times A$).}
     \features{Požymių vektorius taip pat apibrėžia visų būsenų erdvę $S$. Šiuo atveju $S = \mathbb{R}^{513}$.\vspace{5pt}}{
         \item Baitų lygio požymiai (\ref{sec:literature:features:byte}) -- baitų/entropijos
         histograma. } \perturbations{Perturbacijos apibrėžia visų galimų agento veiksmų
@@ -46,11 +46,11 @@ perturbacijų (žr. \ref{sec:literature:perturbations}) \cite{fangEvadingMalware
         \textit{\Name} remiasi \refFramework{MalFox}.
     }
     \purpose{Surasti optimalią obfuskacijos strategiją konkrečiai programai, pagal kurią sukurtas \acs{ae} nebūtų aptiktas komercinių kenkėjiškų programų detektorių.}
-    \surrogate{\acs{rl} surogatinis modelis nenaudojamas. \enquote{Juodos dėžės} detektoriumi pasirinkti komerciniai detektoriai (\enquote{VirusTotal})}
+    \surrogate{\acs{rl} surogatinis modelis nenaudojamas. \enquote{Juodos dėžės} detektoriumi pasirinkti komerciniai detektoriai (\textit{VirusTotal})}
     \mainModel{Agentas implementuotas kaip klasikiniai \acs{ml} algoritmai (konkrečiai dinaminis programavimas ir skirtumų laike (\angl{temporal difference}) algoritmas).}
     \features{Agentas nėra neuroninis tinklas ir požymių iš programos netraukia. Agentas mokosi tik iš perėjimų, o būsenų erdvė $S$ yra originali programa ir perturbuoti jos variantai. Teoriškai perturbuotų programos variantų galėtų būti be galo daug, tuomet $S = A^\infty, |S| = \aleph_0$, tačiau autoriai nurodo, jog daugiau nei 3 sluoksniai kompleksinių perturbacijų reikšmingai paveikia programos veikimo laiką, o tai gali \enquote{sukelti įtarimų} komerciniams detektoriams. Todėl pasirinkta $S = A^3$ \vspace{-20pt}}{\item[]}
     \perturbations{$A = \set{0,1,2,3}$ \vspace{5pt}}{
-        \item \enquote{Null} perturbacija -- naudinga tik formaliam pilnumui (atitinka nulinį $A$ veiksmą)
+        \item \textit{Null} perturbacija -- naudinga tik formaliam pilnumui (atitinka nulinį $A$ veiksmą)
         \item Visos kompleksinės perturbacijos (\ref{sec:literature:perturbations:complex}),
         t.~y. tokios pačios, kaip ir \refFramework{MalFox} \glswhom{framework}. }
 \end{describeFramework}
