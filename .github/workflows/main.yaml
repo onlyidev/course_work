@@ -18,7 +18,7 @@ jobs:
         allowUpdates: true
         artifacts: "*.pdf"
         artifactContentType: "application/pdf"
-        draft: true
+        draft: false
         generateReleaseNotes: true
         omitDraftDuringUpdate: true
         skipIfReleaseExists: true
