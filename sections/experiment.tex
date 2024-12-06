@@ -30,6 +30,7 @@ parinkti \ref{tab:experiment:params}-oje lentelėje aprašyti parametrai.
 efektyvumą.
 
 \begin{table}[h]
+    \caption{Eksperimentuose naudoti \acs{ml} modelio parametrai}\label{tab:experiment:params}
     \begin{tabular}{|l|l|l|}
         \textbf{Parametras}                                                   & \textbf{E-1} & \textbf{E-2}          \\
         \midrule
@@ -40,7 +41,6 @@ efektyvumą.
         Diskriminatoriaus mokymosi greitis                                    & $10^{-3}$    & $4\cdot 10^{-4}$      \\
         Generatoriaus mokymosi greitis                                        & $10^{-3}$    & $10^{-6}$             \\
     \end{tabular}
-    \caption{Eksperimentuose naudoti \acs{ml} modelio parametrai}\label{tab:experiment:params}
 \end{table}
 
 \subsubsection{Realių kenkėjiškų programų rinkinys}\label{sec:experiment:virusshare}
@@ -74,22 +74,22 @@ Specifinis \refFramework{MalGAN} mokymosi etapas yra tokia seka:
 \end{enumerate}
 
 \begin{figure}[h]
+    \caption{\textit{MalGAN} generatoriaus ir diskriminatoriaus nuostolių funkcijų reikšmės mokymosi etape}\label{fig:experiment:learning:combined}
     \begin{small}
         \begin{center}
             \begin{subfigure}[t]{0.5\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{img/learning_paper.png}
                 \caption{\textbf{E-1}}\label{fig:experiment:learning:paper}
+                \includegraphics[width=\textwidth]{img/learning_paper.png}
             \end{subfigure}
             \hfill
             \begin{subfigure}[t]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{img/learning.png}
                 \caption{\textbf{E-2}}\label{fig:experiment:learning}
+                \includegraphics[width=\textwidth]{img/learning.png}
             \end{subfigure}
         \end{center}
     \end{small}
-    \caption{\textit{MalGAN} generatoriaus ir diskriminatoriaus nuostolių funkcijų reikšmės mokymosi etape}\label{fig:experiment:learning:combined}
 \end{figure}
 
 \clearpage
@@ -115,20 +115,20 @@ skaičiavimui pateikiami \ref{fig:experiment:det_dist}-ame pav.
 
 \begin{figure}[h]
     \begin{small}
+        \caption{\Glswhose{adversarial} efektyvumo prieš komercinius detektorius pasiskirstymas}\label{fig:experiment:mu_dist}
         \begin{center}
             \begin{subfigure}[t]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{img/mu_distribution_paper.png}
                 \caption{\textbf{E-1}}
+                \includegraphics[width=\textwidth]{img/mu_distribution_paper.png}
             \end{subfigure}
             \hfill
             \begin{subfigure}[t]{0.48\textwidth}
                 \centering
-                \includegraphics[width=\textwidth]{img/mu_distribution.png}
                 \caption{\textbf{E-2}}
+                \includegraphics[width=\textwidth]{img/mu_distribution.png}
             \end{subfigure}
         \end{center}
-        \caption{\Glswhose{adversarial} efektyvumo prieš komercinius detektorius pasiskirstymas}\label{fig:experiment:mu_dist}
     \end{small}
 \end{figure}
 
@@ -139,11 +139,11 @@ neefektyvias atakas (kai $\mu = 0$).
 
 \begin{table}[h]
     \centering
-    \begin{tabular}{l|l|l}
-                                                   & \textbf{E-1} & \textbf{E-2} \\
-        \midrule
-        \textbf{Efektyvumo vidurkis ($\bar{\mu}$)} & $28,89 \; \%$   & $26,85 \; \%$   \\
-        \textbf{Standartinis nuokrypis ($\sigma$)} & $26,31 \; \%$   & $18,97 \; \%$   \\
-    \end{tabular}
     \caption{Eksperimentų statistikos}\label{tab:experiment:stats}
+    \begin{tabular}{l|l|l}
+                                                   & \textbf{E-1}  & \textbf{E-2}  \\
+        \midrule
+        \textbf{Efektyvumo vidurkis ($\bar{\mu}$)} & $28,89 \; \%$ & $26,85 \; \%$ \\
+        \textbf{Standartinis nuokrypis ($\sigma$)} & $26,31 \; \%$ & $18,97 \; \%$ \\
+    \end{tabular}
 \end{table}
