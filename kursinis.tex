@@ -1,6 +1,6 @@
 \documentclass[
-    lithuanian, % Klasei padavus parametrą 'english', darbas bus anglų kalba.
-    % signatureplaces % prideda parašų vietas tituliniame puslapyje
+  lithuanian, % Klasei padavus parametrą 'english', darbas bus anglų kalba.
+  % signatureplaces % prideda parašų vietas tituliniame puslapyje
 ]{VUMIFPSkursinis}
 \usepackage{float}
 \usepackage{wrapfig2}
@@ -61,7 +61,8 @@
 
 \sectionnonum{Sąvokų apibrėžimai}
 \renewcommand{\glossarysection}[2][]{}
-\printnoidxglossary{}
+\renewcommand*{\glspostdescription}{\par\vspace{1em}}
+\printnoidxglossary[nogroupskip=true,style=list,nonumberlist]{}
 
 \sectionnonum{Santrumpos}
 \printacronyms[heading=none]
