@@ -10,6 +10,7 @@ pridėjimas programos gale) \cite{huGeneratingAdversarialMalware2017}. Perturbac
 \glswhom{framework} apibrėžimą. Šiame poskyryje aptariamos mokslinėje
 literatūroje minimos perturbacijos.
 \subsubsection{Baitų lygio perturbacijos}\label{sec:literature:perturbations:byte}
+Pačias paprasčiausias baitų lygio perturbacijas galima taikyti bet kokio formato failams, tačiau labiau prasmingos perturbacijos taikomos \acs{pe} formato failams. Išskiriamos šios pagrindinės baitų lygio perturbacijos:
 \begin{itemize}
     \item \textbf{\textit{ARBE} (\textit{Append Random Bytes at the End})} \cite{fangEvadingMalwareEngines2019}. \acs{pe} formato failo gale pridedami atsitiktiniai baitai.
     \item \textbf{\textit{ARI} (\textit{Append Random Import})} \cite{fangEvadingMalwareEngines2019}. \acs{pe} formato failo \textit{ImportAddressTable} lentelėje pridedama atsitiktinai pavadinta biblioteka su atsitiktinai pavadinta funkcija.
@@ -25,12 +26,14 @@ literatūroje minimos perturbacijos.
     \item \textbf{\textit{Shift}} \cite{demetrioAdversarialEXEmplesSurvey2021}. \acs{pe} formato failuose kiekvienas sekcijos blokas prasideda su sekcijos vieta nuo pradžios (\angl{offset}). Tarkime ši reikšmė yra $S$. Sekcijos kodas pradedamas vykdyti tik nuo adreso $P+S$, kur $P$ -- programos pradžios adresas. Vadinasi, padidinus\footnoteref{footnote:structure} $S$ per $n$, atsiranda $n$ baitų laisvos vietos iki sekcijos pradžios, kurią galima keisti be jokios įtakos programos veikimui.
 \end{itemize}
 \subsubsection{Semantinės perturbacijos}\label{sec:literature:perturbations:semantic}
+Semantinių perturbacijų įgyvendinimas taip pat atliekamas baitų lygyje, tačiau šie pokyčiai turi aukštesnio lygio prasmę. Išskiriamos šios semantinės perturbacijos:
 \begin{itemize}
     \item \textbf{Nereikalingų \hyperref[feature:dll]{DLL/API vardų} požymių pridėjimas} \cite{huGeneratingAdversarialMalware2017}. \acs{pe} formato faile \textit{ImportTable} lentelėje pridedami originalios programos nenaudojami \acs{dll}/\acs{api} vardai.
     \item \textbf{\textit{Binary Rewriting}} \cite{demetrioAdversarialEXEmplesSurvey2021}. Semantinis instrukcijų perrašymas. Pavyzdžiui, $A+B$ instrukcijos pakeitimas į $A-(-B)$.
 \end{itemize}
 
 \subsubsection{Kompleksinės perturbacijos}\label{sec:literature:perturbations:complex}
+Kompleksinės perturbacijos yra pritaikomos tam tikriems tikslams. Obfuskacijos ir \glswhose{adversarial} tikslams literatūroje minimos šios kompleksinės perturbacijos:
 \begin{itemize}
     \item \textbf{\textit{Obfusmal}} \cite{zhongMalFoxCamouflagedAdversarial2024}. Užšifruojama originalios programos kodo sekcija. Sukuriama ir originalios programos gale pridedama programa \textit{Shell.dll}, kurioje laikomas atšifravimo raktas, originalios programos kodo sekcijos adresas ir dydis. Be to, \textit{Shell.dll} geba atšifruoti originalios programos kodo sekciją ir jai perduoti kontrolę. \textit{Shell.dll} pridedama prie naudojamų \acs{dll}, o programos pradžios taškas nustatomas į \textit{Shell.dll} pradžios tašką. Iliustracija pateikiama \ref{fig:perturbations}-ame pav.
     \item \textbf{\textit{Stealmal}} \cite{zhongMalFoxCamouflagedAdversarial2024}. Visa originali programa užšifruojama ir pridedama prie programos \textit{Shell.exe} galo. \textit{Shell.exe} geba atšifruoti originalią programą ir perduoti jai kontrolę. Iliustracija pateikiama \ref{fig:perturbations}-ame pav.
