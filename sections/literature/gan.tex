@@ -18,7 +18,7 @@
         Tai vienas iš pirmųjų ir populiariausių \acs{gan} tipo modelių \glsplwhom{framework}. \enquote{Juodos dėžės} detektoriai čia apibrėžiami kaip populiarūs \acs{ml} klasifikatoriai, tokie, kaip MLP (\angl{Multilayer Perceptron}), RF (\angl{Random Forest}), DT (\angl{Decision Tree}), \acs{svm} (\angl{Support Vector Machine}).
     }
     \purpose{
-        Efektyviai išvengti \acs{ae} aptikimo, kai \acs{ml} kenkėjiškų programų detektoriaus įgyvendinimas nežinomas (\enquote{juodos dėžės} atvejis)
+        Efektyviai išvengti \acs{ae} aptikimo, kai \acs{ml} kenkėjiškų programų detektoriaus įgyvendinimas nežinomas (\enquote{juodos dėžės} atvejis).
     }
     \surrogate{
         Daugiasluoksnis tiesioginio sklidimo neuroninis tinklas -- klasifikatorius. Įvestis -- programos požymių vektorius. Išvestis -- klasifikacija į kenksmingą arba nekenksmingą. Šis tinklas taip pat naudojamas kaip diskriminatorius \acs{gan} architektūroje.
@@ -31,7 +31,7 @@
     }
     \perturbations{}{
         Semantinės perturbacijos (\ref{sec:literature:perturbations:semantic}) --
-        nereikalingų \acs{api} vardų požymių pridėjimas 
+        nereikalingų \acs{api} vardų požymių pridėjimas.
     }
 \end{describeFramework}
 
@@ -43,7 +43,7 @@
         Supaprastinti, pagreitinti ir pagerinti \glswhat{adversarial}. Pašalinti prielaidas\footnoteref{footnote:detector-assumptions} apie detektorių \enquote{juodos dėžės} atvejais.
     }
     \surrogate{
-        Surogatinio modelio veikimas ir architektūra tokia pati, kaip ir \refFramework{MalGAN}
+        Surogatinio modelio veikimas ir architektūra tokia pati, kaip ir \refFramework{MalGAN}.
     }
     \mainModel{
         Pagrindinio modelio veikimas ir architektūra labai panašūs į \refFramework{MalGAN}, tačiau norėdami stabilizuoti mokymosi procesą, autoriai siūlo nenaudoti \enquote{triukšmo} vektoriaus. Vietoje to, generatoriaus išvestis ($n$-matis vektorius) modifikuojama nekeičiant pirmų $m$ dimensijų, o kitas $n-m$ pakeičiant nekenksmingų programų požymiais.
@@ -72,6 +72,6 @@
         vardai. 
     }
     \perturbations{}{
-        Visos kompleksinės perturbacijos (\ref{sec:literature:perturbations:complex}) 
+        Visos kompleksinės perturbacijos (\ref{sec:literature:perturbations:complex}).
     }
 \end{describeFramework}
