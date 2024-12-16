@@ -1,9 +1,10 @@
 \subsection{Genetinių algoritmų tipo modelių \glspl{framework}}\label{sec:literature:genetic}
 
 Genetinai algoritmai (\acs{genetic}) yra viena seniausių mašininio mokymosi
-\acs{ml} apraiškų; jų veikimas paremtas evoliucija \cite{castroAIMEDEvolvingMalware2019}. Kenkėjiškų
-programų obfuskacijai \acs{ae} generavimas taikant \acs{genetic} yra tokia
-seka \cite{yusteOptimizationCodeCaves2022}:
+\acs{ml} apraiškų; jų veikimas paremtas evoliucija
+\cite{castroAIMEDEvolvingMalware2019}. Kenkėjiškų programų obfuskacijai
+\acs{ae} generavimas taikant \acs{genetic} yra tokia seka
+\cite{yusteOptimizationCodeCaves2022}:
 \begin{enumerate}
     \item Sukuriama pradinė populiacija (perturbacijos metodai pradinei populiacijai
           priklauso nuo \glswhom{framework}).
@@ -22,11 +23,15 @@ seka \cite{yusteOptimizationCodeCaves2022}:
     \purpose{\acs{ae} generavimo greičio padidinimas ir modelių kompleksiškumo sumažinimas, lyginant su \acs{gan} ir \acs{rl} tipo modelių karkasais.}
     \surrogate{Surogatinis modelis nenaudojamas. Naudojami \enquote{juodos dėžės} detektoriai yra \textbf{3 komerciniai} (\textit{Kaspersky, ESET, Sophos}) ir vienas \acs{ml} modelis -- \acs{gbdt}.}
     \mainModel{Klasikinis \acs{genetic} modelis -- veikimas visiškai atitinką bendrą seką. Tinkamumo (\angl{fitness}) vertinamas remiasi \acs{ae} požymių vektoriaus panašumu į originalios programos požymių vektorių (kuo mažiau panašūs, tuo tinkamumo įvertinimas didesnis).}
-    \features{}{\item Baitų lygio požymiai (\ref{sec:literature:features:byte}) -- atskiras $n$-gramų
-        atvejis, kai $n=1$} \perturbations{}{
-        \item Baitų lygio perturbacijos\footnote{autoriai rėmėsi perturbacijomis, aprašytomis
+    \features{}{
+        Baitų lygio požymiai (\ref{sec:literature:features:byte}) -- atskiras $n$-gramų
+        atvejis, kai $n=1$
+    }
+    \perturbations{}{ Baitų lygio
+        perturbacijos\footnote{autoriai rėmėsi perturbacijomis, aprašytomis
             \cite{andersonLearningEvadeStatic2018}}
-        (\ref{sec:literature:perturbations:byte}). }
+        (\ref{sec:literature:perturbations:byte}). 
+    }
 \end{describeFramework}
 
 \begin{describeFramework}{GAMMA}{\cite{demetrioFunctionalityPreservingBlackBoxOptimization2021}}
@@ -34,11 +39,17 @@ seka \cite{yusteOptimizationCodeCaves2022}:
     \surrogate{Surogatinis modelis nenaudojamas. \acs{gbdt} ir \textit{MalConv} pasirinkti kaip \enquote{juodos dėžės} detektoriai.}
     \mainModel{Pagrindinė modelio idėja yra požymių ištraukimas iš nekenksmingų programų ir jų pridėjimas, naudojant tam pritaikytas perturbacijas, į kenksmingas programas kiekvienos populiacijos generavimo metu. Tinkamumo (\angl{fitness}) ir kriterijų vertinimas atliekamas naudojant detektorių ir pridėtų požymių dydį baitais (norima pridėti kuo mažiau požymių).}
     \features{}{
-        \item \acs{pe} formato programų požymiai (\ref{sec:literature:features:pe}).
-        \item Kodas sekcijose (nestandartinis požymis). } \perturbations{}{
-        \item Visos baitų lygio perturbacijos (\ref{sec:literature:perturbations:byte}),
-        gebančios pridėti baitus.
-        \item Autoriai pažymi, jog gali būti naudojama ir \acs{dll} / \acs{api} vardų
-        pridėjimo semantinė perturbacija (\ref{sec:literature:perturbations:semantic}).
+        \begin{itemize}
+            \item \acs{pe} formato programų požymiai (\ref{sec:literature:features:pe}).
+            \item Kodas sekcijose (nestandartinis požymis).
+        \end{itemize}
+    }
+    \perturbations{}{
+        \begin{itemize}
+            \item Visos baitų lygio perturbacijos (\ref{sec:literature:perturbations:byte}),
+                  gebančios pridėti baitus.
+            \item Autoriai pažymi, jog gali būti naudojama ir \acs{dll} / \acs{api} vardų
+                  pridėjimo semantinė perturbacija (\ref{sec:literature:perturbations:semantic}).
+        \end{itemize}
     }
 \end{describeFramework}

@@ -7,7 +7,9 @@
     \item Originali kenkėjiška programa modifikuojama pagal perturbacijas (sukuriamas
           \ac{ae}).
     \item Diskriminatorius klasifikuoja sugeneruotą \ac{ae} (kenkėjiškas /
-          nekenkėjiškas). Pagal klasifikacijos rezultatą skaičiuojamos diskriminatoriaus ir generatoriaus nuostolių funkcijos reikšmės (diskriminatoriaus nuostolių funkcijos reikšmė priklauso nuo tikro detektoriaus klasifikacijos).
+          nekenkėjiškas). Pagal klasifikacijos rezultatą skaičiuojamos diskriminatoriaus
+          ir generatoriaus nuostolių funkcijos reikšmės (diskriminatoriaus nuostolių
+          funkcijos reikšmė priklauso nuo tikro detektoriaus klasifikacijos).
     \item Visa seka kartojama nustatytą kiekį kartų.
 \end{enumerate}
 
@@ -25,11 +27,12 @@
         Daugiasluoksnis tiesioginio sklidimo neuroninis tinklas. Įvestis -- programos požymių vektorius ir tokios pačios dimensijos \enquote{triukšmo} vektorius. Išvestis -- modifikuotas požymių vektorius. Šis tinklas naudojamas kaip generatorius \acs{gan} architektūroje.
     }
     \features{}{
-        \item \textit{MalGan} straipsnyje naudojami tik \acs{api} vardų požymiai, patenkantys į PE formato programų požymių kategoriją (žr. \ref{sec:literature:features:pe}), tačiau autoriai nurodo, jog gali būti naudojami bet kokie požymiai\footnote{\label{footnote:detector-assumptions}autoriai nagrinėja \enquote{juodos dėžės} atvejį su prielaida, jog detektoriaus naudojami požymiai yra žinomi.}.
+        \textit{MalGan} straipsnyje \cite{huGeneratingAdversarialMalware2017} naudojami tik \acs{api} vardų požymiai, patenkantys į PE formato programų požymių kategoriją (žr. \ref{sec:literature:features:pe}), tačiau autoriai nurodo, jog gali būti naudojami bet kokie požymiai\footnote{\label{footnote:detector-assumptions}autoriai nagrinėja \enquote{juodos dėžės} atvejį su prielaida, jog detektoriaus naudojami požymiai yra žinomi.}.
     }
     \perturbations{}{
-        \item Semantinės perturbacijos (\ref{sec:literature:perturbations:semantic}) --
-        nereikalingų \acs{api} vardų požymių pridėjimas }
+        Semantinės perturbacijos (\ref{sec:literature:perturbations:semantic}) --
+        nereikalingų \acs{api} vardų požymių pridėjimas 
+    }
 \end{describeFramework}
 
 \begin{describeFramework}{N-gram MalGAN}{\cite{zhuNgramMalGANEvading2022}}
@@ -46,24 +49,29 @@
         Pagrindinio modelio veikimas ir architektūra labai panašūs į \refFramework{MalGAN}, tačiau norėdami stabilizuoti mokymosi procesą, autoriai siūlo nenaudoti \enquote{triukšmo} vektoriaus. Vietoje to, generatoriaus išvestis ($n$-matis vektorius) modifikuojama nekeičiant pirmų $m$ dimensijų, o kitas $n-m$ pakeičiant nekenksmingų programų požymiais.
     }
     \features{}{
-        \item Baitų lygio požymiai (\ref{sec:literature:features:byte}) -- $n$-gramos. }
+        Baitų lygio požymiai (\ref{sec:literature:features:byte}) -- $n$-gramos.
+    }
     \perturbations{Autoriai neatliko eksperimentų su perturbuotomis programomis,
         tačiau pažymi, jog norint gauti sugeneruotus požymių vektorius užtenka pridėti
         reikiamus baitus programos gale. Tai atitinka
-        \ref{sec:literature:perturbations:byte} apibrėžtą \vspace{5pt}}{
-        \item baitų lygio perturbaciją \textit{ARBE}, tik šiuo atveju pridedami baitai nebūtų
-        atsitiktiniai, o norimos $n$-gramos. }
+        \ref{sec:literature:perturbations:byte} apibrėžtą }{
+        baitų lygio perturbaciją \textit{ARBE}, tik šiuo atveju pridedami baitai nebūtų
+        atsitiktiniai, o norimos $n$-gramos.
+    }
 \end{describeFramework}
 
 \begin{describeFramework}{MalFox}{\cite{zhongMalFoxCamouflagedAdversarial2024}}
     \introLastPar{
-        \textit{\Name} taip pat remiasi \refFramework{MalGAN}, tačiau siekia kurti \acs{ae} realiomis sąlygomis, dėl to atlieka esminius pakeitimus. 
+        \textit{\Name} taip pat remiasi \refFramework{MalGAN}, tačiau siekia kurti \acs{ae} realiomis sąlygomis, dėl to atlieka esminius pakeitimus.
     }
     \purpose{Generuoti \acs{ae}, kurių neaptiktų komerciniai detektoriai (prieš tai aptarti \glspl{framework} eksperimentams kaip nepriklausomą detektorių naudojo tokius \acs{ml} modelius, kaip \acs{svm}, \acs{knn}, \acs{gbdt} ir kt., bet ne komercinius detektorius). Šio \glswhom{framework} detektorius yra \textit{VirusTotal} (viešai prieinama paslauga, agreguojanti virš 70 komercinių kenkėjiškų programų detektorių).}
     \surrogate{Surogatinis modelis, kaip ir kituose \acs{gan} tipo modelių karkasuose, naudojamas kaip diskriminatorius. Įvestis -- perturbuota programa. Išvestis -- klasifikacija į kenksmingą arba nekenksmingą. Įgyvendinimas -- konvoliucinis neuroninis tinklas (\acs{cnn}).}
     \mainModel{Standartinis \acs{gan} generatorius, požymių vektorių sujungiantis su \enquote{triukšmo} vektoriumi. Įgyvendinimas -- konvoliucinis neuroninis tinklas (\acs{cnn}).}
     \features{}{
-        \item PE formato programų požymiai (\ref{sec:literature:features:pe}) -- \acs{dll}
-        vardai. } \perturbations{}{
-        \item Visos kompleksinės perturbacijos (\ref{sec:literature:perturbations:complex}) }
+        PE formato programų požymiai (\ref{sec:literature:features:pe}) -- \acs{dll}
+        vardai. 
+    }
+    \perturbations{}{
+        Visos kompleksinės perturbacijos (\ref{sec:literature:perturbations:complex}) 
+    }
 \end{describeFramework}
