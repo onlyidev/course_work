@@ -1,3 +1,5 @@
+\ref{eq:LD}-oje ir \ref{eq:LG}-oje formulėse atitinkamai pateikiamos \textit{MalGAN} diskriminatoriaus ir generatoriaus nuostolių funkcijos. Šiose formulėse naudojamų simbolių prasmės paaiškinimas pateikiamas \ref{tab:eq_explain}-oje lentelėje.
+
 \begin{equation}
     L_{D}= -\mathbb{E}_{x\in BB_{Benign}}\log\left(1-D_{\theta_{d}}(x)\right)\\-\mathbb{E}_{x\in BB_{Malware}}\log D_{\theta_{d}}\left(x\right).\label{eq:LD}
 \end{equation}
@@ -5,8 +7,6 @@
 \begin{equation}
     L_G= \mathbb{E}_{m \in S_{Malware},z \sim p_{\mathrm{uniform} \left[0,1\right) }} \log D_{\theta_d} \left(G_{\theta_g} \left(m,z\right) \right)\label{eq:LG}
 \end{equation}
-
-\ref{eq:LD}-oje ir \ref{eq:LG}-oje formulėse atitinkamai pateikiamos \textit{MalGAN} diskriminatoriaus ir generatoriaus nuostolių funkcijos. Šiose formulėse naudojamų simbolių prasmės paaiškinimas pateikiamas \ref{tab:eq_explain}-oje lentelėje.
 
 \begin{table}[h]
     \begin{small}
